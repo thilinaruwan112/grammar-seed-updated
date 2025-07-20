@@ -1,20 +1,20 @@
-# **App Name**: Grammar Seed
+# **App Name**: GrammarSheet
 
 ## Core Features:
 
-- Grade Level Display: Display the different grade levels Grammar Seed services.
-- Qualifications Showcase: List the english teacher's certifications and educational achievements.
-- Student Testimonials: Provide testimonials from previous students.
-- AI Grammar Quiz Generator: Use a tool to create customized grammar quizzes based on grade level and learning objectives.
-- Contact Form: Enable students/parents to easily contact the teacher for inquiries/consultations.
-- Resources Page: Show a listing of student resources: books, apps, and study guides
+- Homepage: Implement a homepage with a brief introduction to the platform and clear navigation links to other sections.
+- Lessons Section: Design a dedicated 'Lessons' section, categorizing grammar topics for easy access.
+- Practice Section: Create an interactive 'Practice' section with quizzes and exercises to reinforce learning.
+- Downloadable Grammar Sheets: Allow users to download grammar reference sheets in PDF format.
+- AI Grammar Checker: Include an AI-powered 'Grammar Checker' tool where students can input sentences and receive feedback on grammar and style.
+- Responsive UI Design: Design the website with a modern, responsive UI based on the provided Figma layout, ensuring accessibility on various devices.
 
 ## Style Guidelines:
 
-- Primary color: Light, desaturated blue (#ADD8E6) to evoke feelings of calm, intelligence, and trustworthiness.
-- Background color: Very light grey (#F5F5F5) for a clean, distraction-free learning environment.
-- Accent color: Muted green (#A9D18E) for a touch of freshness and to highlight important sections.
-- Body and headline font: 'PT Sans', a humanist sans-serif offering a modern yet approachable aesthetic suitable for both headings and main content.
-- Use clear, intuitive icons that represent each grade level and topic covered.
-- Maintain a clean, grid-based layout that is easy to navigate.
-- Subtle animations for user feedback to enhance engagement, like highlighting menu options.
+- Primary color: Soft, desaturated blue (#94B49F) to create a calm, educational atmosphere.
+- Background color: Light beige (#F5F5DC) to provide a gentle, non-distracting backdrop.
+- Accent color: Muted orange (#D2691E) for interactive elements like buttons and links, adding warmth.
+- Headline font: 'Playfair', serif, for headlines; body font: 'PT Sans', sans-serif, for body text
+- Use clean, minimalist icons to represent grammar concepts and navigation elements.
+- Employ a clear, grid-based layout to ensure content is well-organized and easy to follow.
+- Use subtle transitions and animations to enhance user engagement without being distracting.

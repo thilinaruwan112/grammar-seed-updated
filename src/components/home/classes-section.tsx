@@ -1,29 +1,27 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Card } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { cn } from '@/lib/utils';
-import { BookOpen, Pencil, GraduationCap, FileText, Trophy, Star } from 'lucide-react';
 import { useLanguage } from '../language-provider';
 
 const classesData = {
   en: [
-    { icon: BookOpen, grade: 'Grade 6', topics: ['Foundation Grammar', 'Basic Writing', 'Reading Skills'], color: 'primary' as const },
-    { icon: Pencil, grade: 'Grade 7', topics: ['Grammar Rules', 'Essay Writing', 'Comprehension'], color: 'secondary' as const },
-    { icon: GraduationCap, grade: 'Grade 8', topics: ['Advanced Grammar', 'Creative Writing', 'Literature'], color: 'primary' as const },
-    { icon: FileText, grade: 'Grade 9', topics: ['O/L Preparation', 'Past Papers', 'Language Skills'], color: 'secondary' as const },
-    { icon: Trophy, grade: 'Grade 10', topics: ['O/L Focus', 'Exam Techniques', 'Literature Analysis'], color: 'primary' as const },
-    { icon: Star, grade: 'Grade 11', topics: ['O/L Final Prep', 'Mock Exams', 'Intensive Practice'], color: 'secondary' as const },
+    { grade: 'Grade 6', description: 'Build a strong foundation in grammar, writing, and reading.', color: 'primary' as const },
+    { grade: 'Grade 7', description: 'Master grammar rules, essay writing, and comprehension skills.', color: 'secondary' as const },
+    { grade: 'Grade 8', description: 'Learn advanced grammar, creative writing, and literature.', color: 'primary' as const },
+    { grade: 'Grade 9', description: 'Prepare for your O/L exams with focused language skills.', color: 'secondary' as const },
+    { grade: 'Grade 10', description: 'Intensive O/L focus with exam techniques and analysis.', color: 'primary' as const },
+    { grade: 'Grade 11', description: 'Final O/L preparation with mock exams and intensive practice.', color: 'secondary' as const },
   ],
   si: [
-    { icon: BookOpen, grade: '6 ශ්‍රේණිය', topics: ['මූලික ව්‍යාකරණ', 'සරල ලිවීම', 'කියවීමේ කුසලතා'], color: 'primary' as const },
-    { icon: Pencil, grade: '7 ශ්‍රේණිය', topics: ['ව්‍යාකරණ නීති', 'රචනා ලිවීම', 'අවබෝධය'], color: 'secondary' as const },
-    { icon: GraduationCap, grade: '8 ශ්‍රේණිය', topics: ['උසස් ව්‍යාකරණ', 'නිර්මාණාත්මක ලිවීම', 'සාහිත්‍යය'], color: 'primary' as const },
-    { icon: FileText, grade: '9 ශ්‍රේණිය', topics: ['සා/පෙළ සූදානම', 'පසුගිය විභාග ප්‍රශ්න', 'භාෂා කුසලතා'], color: 'secondary' as const },
-    { icon: Trophy, grade: '10 ශ්‍රේණිය', topics: ['සා/පෙළ ඉලක්ක', 'විභාග ತಂತ್ರ', 'සාහිත්‍ය විශ්ලේෂණය'], color: 'primary' as const },
-    { icon: Star, grade: '11 ශ්‍රේණිය', topics: ['සා/පෙළ අවසන් සූදානම', 'ආදර්ශ විභාග', 'දැඩි පුහුණුව'], color: 'secondary' as const },
+    { grade: '6 ශ්‍රේණිය', description: 'ව්‍යාකරණ, ලිවීම සහ කියවීමේ ශක්තිමත් පදනමක් ගොඩනඟා ගන්න.', color: 'primary' as const },
+    { grade: '7 ශ්‍රේණිය', description: 'ව්‍යාකරණ නීති, රචනා ලිවීම සහ අවබෝධතා කුසලතා ප්‍රගුණ කරන්න.', color: 'secondary' as const },
+    { grade: '8 ශ්‍රේණිය', description: 'උසස් ව්‍යාකරණ, නිර්මාණාත්මක ලිවීම සහ සාහිත්‍යය ඉගෙන ගන්න.', color: 'primary' as const },
+    { grade: '9 ශ්‍රේණිය', description: 'ඔබේ සා/පෙළ විභාගය සඳහා භාෂා කුසලතා කෙරෙහි අවධානය යොමු කරන්න.', color: 'secondary' as const },
+    { grade: '10 ශ්‍රේණිය', description: 'විභාග ತಂತ್ರ සහ විශ්ලේෂණය සමඟ දැඩි සා/පෙළ අවධානය.', color: 'primary' as const },
+    { grade: '11 ශ්‍රේණිය', description: 'ආදර්ශ විභාග සහ දැඩි පුහුණුව සමඟ අවසන් සා/පෙළ සූදානම.', color: 'secondary' as const },
   ],
 };
 
@@ -31,12 +29,12 @@ const translations = {
   en: {
     title: 'Classes for Grades 6-11',
     subtitle: 'Choose the perfect class for your grade level',
-    buttonText: 'View Class Details',
+    buttonText: 'Get Started',
   },
   si: {
     title: '6-11 ශ්‍රේණි සඳහා පන්ති',
     subtitle: 'ඔබේ ශ්‍රේණියට ගැලපෙනම පන්තිය තෝරාගන්න',
-    buttonText: 'පන්ති විස්තර බලන්න',
+    buttonText: 'ආරම්භ කරන්න',
   },
 };
 
@@ -70,22 +68,22 @@ export default function ClassesSection() {
                 <p className="text-muted-foreground mb-12 max-w-lg mx-auto">{t.subtitle}</p>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {currentClassesData.map((item) => {
-                        const Icon = item.icon;
                         return (
-                            <Card key={item.grade} className="bg-card p-8 flex flex-col items-center text-center shadow-lg rounded-2xl h-full">
-                                <Icon className={cn('h-10 w-10', item.color === 'primary' ? 'text-primary' : 'text-secondary')} />
-                                <h3 className="font-headline text-2xl font-bold mt-4 mb-2">{item.grade}</h3>
-                                <p className="text-muted-foreground mb-6 flex-grow">
-                                    {item.topics.join(' • ')}
-                                </p>
-                                <Button
-                                    asChild
-                                    size="lg"
-                                    variant={item.color === 'secondary' ? 'secondary' : 'default'}
-                                    className='w-full rounded-full'
-                                >
-                                    <Link href="#">{t.buttonText}</Link>
-                                </Button>
+                            <Card key={item.grade} className="bg-card text-card-foreground p-8 flex flex-col items-start text-left shadow-lg rounded-2xl h-full">
+                                <CardContent className="p-0 flex flex-col items-start h-full">
+                                    <h3 className="font-headline text-3xl font-bold mb-4">{item.grade}</h3>
+                                    <p className="text-card-foreground/80 mb-6 flex-grow">
+                                        {item.description}
+                                    </p>
+                                    <Button
+                                        asChild
+                                        size="lg"
+                                        variant={'accent'}
+                                        className='mt-auto'
+                                    >
+                                        <Link href="#">{t.buttonText}</Link>
+                                    </Button>
+                                </CardContent>
                             </Card>
                         );
                     })}

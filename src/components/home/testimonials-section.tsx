@@ -103,7 +103,7 @@ export default function TestimonialsSection() {
                                         </div>
                                         <div className="flex mb-4">
                                             {[...Array(5)].map((_, i) => (
-                                                <Star key={i} className="h-5 w-5 text-secondary-foreground" fill="currentColor" />
+                                                <Star key={i} className="h-5 w-5 text-secondary" fill="currentColor" />
                                             ))}
                                         </div>
                                         <p className="text-muted-foreground flex-grow">{testimonial.review}</p>
@@ -114,7 +114,7 @@ export default function TestimonialsSection() {
                     </Carousel>
                 </div>
                 <div className="mt-12">
-                    <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 rounded-full">
+                    <Button asChild size="lg" variant="secondary" className="rounded-full">
                         <Link href="#">{t.buttonText}</Link>
                     </Button>
                 </div>

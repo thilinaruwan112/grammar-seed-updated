@@ -75,13 +75,13 @@ export default function NewsSection() {
                             <div className="p-6 flex flex-col flex-grow">
                                 <h3 className="font-headline text-xl font-bold mb-2">{news.title}</h3>
                                 <p className="text-muted-foreground mb-4 flex-grow">{news.description}</p>
-                                <p className="text-sm text-secondary-foreground font-medium">{news.date}</p>
+                                <p className="text-sm text-secondary font-medium">{news.date}</p>
                             </div>
                         </Card>
                     ))}
                 </div>
                 <div className="mt-12">
-                    <Button asChild size="lg" className="rounded-full bg-accent text-accent-foreground hover:bg-accent/90">
+                    <Button asChild size="lg" variant="secondary" className="rounded-full">
                         <Link href="#">{t.buttonText}</Link>
                     </Button>
                 </div>

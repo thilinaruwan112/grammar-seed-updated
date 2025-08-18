@@ -74,7 +74,7 @@ export default function ClassDetailSection() {
                 </div>
               </div>
               <div className="mt-12 text-center">
-                <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8">
+                <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold px-8">
                   Join This Class
                 </Button>
               </div>

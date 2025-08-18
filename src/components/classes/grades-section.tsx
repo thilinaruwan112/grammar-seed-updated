@@ -14,8 +14,8 @@ const gradesData = [
     description: 'Basic grammar, simple tenses, vocabulary building, and reading comprehension.',
     format: 'Online/Physical',
     duration: '2 hrs/week',
-    colorClasses: 'bg-green-500 text-white',
-    buttonClasses: 'bg-green-500 hover:bg-green-600 text-white',
+    colorClasses: 'bg-primary text-primary-foreground',
+    buttonClasses: 'bg-primary hover:bg-primary/90 text-primary-foreground',
   },
   {
     grade: 7,
@@ -23,8 +23,8 @@ const gradesData = [
     description: 'Advanced grammar, essay writing, comprehension, and vocabulary expansion.',
     format: 'Hybrid',
     duration: '2.5 hrs/week',
-    colorClasses: 'bg-blue-600 text-white',
-    buttonClasses: 'bg-blue-600 hover:bg-blue-700 text-white',
+    colorClasses: 'bg-secondary text-secondary-foreground',
+    buttonClasses: 'bg-secondary hover:bg-secondary/80 text-secondary-foreground',
   },
   {
     grade: 8,
@@ -32,8 +32,8 @@ const gradesData = [
     description: 'Complex grammar, creative writing, literature basics, and speaking skills.',
     format: 'Online/Physical',
     duration: '3 hrs/week',
-    colorClasses: 'bg-orange-500 text-white',
-    buttonClasses: 'bg-orange-500 hover:bg-orange-600 text-white',
+    colorClasses: 'bg-primary text-primary-foreground',
+    buttonClasses: 'bg-primary hover:bg-primary/90 text-primary-foreground',
   },
   {
     grade: 9,
@@ -41,8 +41,8 @@ const gradesData = [
     description: 'O/L focused grammar, essay techniques, literature analysis, past papers.',
     format: 'Hybrid',
     duration: '3.5 hrs/week',
-    colorClasses: 'bg-purple-600 text-white',
-    buttonClasses: 'bg-purple-600 hover:bg-purple-700 text-white',
+    colorClasses: 'bg-secondary text-secondary-foreground',
+    buttonClasses: 'bg-secondary hover:bg-secondary/80 text-secondary-foreground',
   },
   {
     grade: 10,
@@ -50,8 +50,8 @@ const gradesData = [
     description: 'Intensive O/L preparation, advanced writing, literature, exam strategies.',
     format: 'Online/Physical',
     duration: '4 hrs/week',
-    colorClasses: 'bg-red-600 text-white',
-    buttonClasses: 'bg-red-600 hover:bg-red-700 text-white',
+    colorClasses: 'bg-primary text-primary-foreground',
+    buttonClasses: 'bg-primary hover:bg-primary/90 text-primary-foreground',
   },
   {
     grade: 11,
@@ -59,8 +59,8 @@ const gradesData = [
     description: 'A/L English preparation, advanced literature, critical analysis, research skills.',
     format: 'Hybrid',
     duration: '4 hrs/week',
-    colorClasses: 'bg-indigo-600 text-white',
-    buttonClasses: 'bg-indigo-600 hover:bg-indigo-700 text-white',
+    colorClasses: 'bg-secondary text-secondary-foreground',
+    buttonClasses: 'bg-secondary hover:bg-secondary/80 text-secondary-foreground',
   },
 ];
 

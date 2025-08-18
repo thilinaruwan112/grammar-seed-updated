@@ -19,11 +19,7 @@ const sectionVariants = {
 export default function CtaSection() {
   return (
     <motion.section
-      className="py-20 text-white"
-      style={{
-        background:
-          'linear-gradient(to right, hsl(217, 71%, 53%), hsl(158, 41%, 49%))',
-      }}
+      className="py-20 text-primary-foreground bg-primary"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
@@ -33,7 +29,7 @@ export default function CtaSection() {
         <h2 className="text-4xl font-bold font-headline mb-4">
           Interested in learning more or joining a class?
         </h2>
-        <p className="text-xl mb-8 max-w-2xl mx-auto text-neutral-200">
+        <p className="text-xl mb-8 max-w-2xl mx-auto text-primary-foreground/80">
           Take the first step towards mastering English with personalized
           guidance.
         </p>
@@ -41,7 +37,7 @@ export default function CtaSection() {
           <Button
             asChild
             size="lg"
-            className="bg-secondary-foreground text-primary-foreground hover:bg-secondary-foreground/90"
+            variant="secondary"
           >
             <Link href="#">View Class Details</Link>
           </Button>

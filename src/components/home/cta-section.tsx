@@ -36,21 +36,20 @@ export default function CtaSection() {
 
     return (
         <motion.section
-            className="py-20 text-white"
-            style={{ background: 'linear-gradient(to right, hsl(217, 71%, 53%), hsl(158, 41%, 49%))' }}
+            className="py-20 text-white bg-primary"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
             variants={sectionVariants}
         >
             <div className="container mx-auto px-4 text-center">
-                <h2 className="text-4xl font-bold font-headline mb-4">
+                <h2 className="text-4xl font-bold font-headline mb-4 text-primary-foreground">
                     {t.title}
                 </h2>
-                <p className="text-xl mb-8 max-w-2xl mx-auto text-neutral-200">
+                <p className="text-xl mb-8 max-w-2xl mx-auto text-primary-foreground/80">
                     {t.description}
                 </p>
-                <Button asChild size="lg" className="bg-white text-accent-foreground hover:bg-white/90 rounded-full font-semibold px-10 py-6 text-lg dark:bg-primary-foreground dark:text-primary dark:hover:bg-primary-foreground/90">
+                <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 rounded-full font-semibold px-10 py-6 text-lg">
                     <Link href="#">{t.buttonText}</Link>
                 </Button>
             </div>

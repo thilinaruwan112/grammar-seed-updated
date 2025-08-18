@@ -10,20 +10,20 @@ import { useLanguage } from '../language-provider';
 
 const classesData = {
   en: [
-    { icon: BookOpen, grade: 'Grade 6', topics: ['Foundation Grammar', 'Basic Writing', 'Reading Skills'], color: 'green' as const },
-    { icon: Pencil, grade: 'Grade 7', topics: ['Grammar Rules', 'Essay Writing', 'Comprehension'], color: 'orange' as const },
-    { icon: GraduationCap, grade: 'Grade 8', topics: ['Advanced Grammar', 'Creative Writing', 'Literature'], color: 'green' as const },
-    { icon: FileText, grade: 'Grade 9', topics: ['O/L Preparation', 'Past Papers', 'Language Skills'], color: 'orange' as const },
-    { icon: Trophy, grade: 'Grade 10', topics: ['O/L Focus', 'Exam Techniques', 'Literature Analysis'], color: 'green' as const },
-    { icon: Star, grade: 'Grade 11', topics: ['O/L Final Prep', 'Mock Exams', 'Intensive Practice'], color: 'orange' as const },
+    { icon: BookOpen, grade: 'Grade 6', topics: ['Foundation Grammar', 'Basic Writing', 'Reading Skills'], color: 'primary' as const },
+    { icon: Pencil, grade: 'Grade 7', topics: ['Grammar Rules', 'Essay Writing', 'Comprehension'], color: 'secondary' as const },
+    { icon: GraduationCap, grade: 'Grade 8', topics: ['Advanced Grammar', 'Creative Writing', 'Literature'], color: 'primary' as const },
+    { icon: FileText, grade: 'Grade 9', topics: ['O/L Preparation', 'Past Papers', 'Language Skills'], color: 'secondary' as const },
+    { icon: Trophy, grade: 'Grade 10', topics: ['O/L Focus', 'Exam Techniques', 'Literature Analysis'], color: 'primary' as const },
+    { icon: Star, grade: 'Grade 11', topics: ['O/L Final Prep', 'Mock Exams', 'Intensive Practice'], color: 'secondary' as const },
   ],
   si: [
-    { icon: BookOpen, grade: '6 ශ්‍රේණිය', topics: ['මූලික ව්‍යාකරණ', 'සරල ලිවීම', 'කියවීමේ කුසලතා'], color: 'green' as const },
-    { icon: Pencil, grade: '7 ශ්‍රේණිය', topics: ['ව්‍යාකරණ නීති', 'රචනා ලිවීම', 'අවබෝධය'], color: 'orange' as const },
-    { icon: GraduationCap, grade: '8 ශ්‍රේණිය', topics: ['උසස් ව්‍යාකරණ', 'නිර්මාණාත්මක ලිවීම', 'සාහිත්‍යය'], color: 'green' as const },
-    { icon: FileText, grade: '9 ශ්‍රේණිය', topics: ['සා/පෙළ සූදානම', 'පසුගිය විභාග ප්‍රශ්න', 'භාෂා කුසලතා'], color: 'orange' as const },
-    { icon: Trophy, grade: '10 ශ්‍රේණිය', topics: ['සා/පෙළ ඉලක්ක', 'විභාග ತಂತ್ರ', 'සාහිත්‍ය විශ්ලේෂණය'], color: 'green' as const },
-    { icon: Star, grade: '11 ශ්‍රේණිය', topics: ['සා/පෙළ අවසන් සූදානම', 'ආදර්ශ විභාග', 'දැඩි පුහුණුව'], color: 'orange' as const },
+    { icon: BookOpen, grade: '6 ශ්‍රේණිය', topics: ['මූලික ව්‍යාකරණ', 'සරල ලිවීම', 'කියවීමේ කුසලතා'], color: 'primary' as const },
+    { icon: Pencil, grade: '7 ශ්‍රේණිය', topics: ['ව්‍යාකරණ නීති', 'රචනා ලිවීම', 'අවබෝධය'], color: 'secondary' as const },
+    { icon: GraduationCap, grade: '8 ශ්‍රේණිය', topics: ['උසස් ව්‍යාකරණ', 'නිර්මාණාත්මක ලිවීම', 'සාහිත්‍යය'], color: 'primary' as const },
+    { icon: FileText, grade: '9 ශ්‍රේණිය', topics: ['සා/පෙළ සූදානම', 'පසුගිය විභාග ප්‍රශ්න', 'භාෂා කුසලතා'], color: 'secondary' as const },
+    { icon: Trophy, grade: '10 ශ්‍රේණිය', topics: ['සා/පෙළ ඉලක්ක', 'විභාග ತಂತ್ರ', 'සාහිත්‍ය විශ්ලේෂණය'], color: 'primary' as const },
+    { icon: Star, grade: '11 ශ්‍රේණිය', topics: ['සා/පෙළ අවසන් සූදානම', 'ආදර්ශ විභාග', 'දැඩි පුහුණුව'], color: 'secondary' as const },
   ],
 };
 
@@ -73,7 +73,7 @@ export default function ClassesSection() {
                         const Icon = item.icon;
                         return (
                             <Card key={item.grade} className="bg-card p-8 flex flex-col items-center text-center shadow-lg rounded-2xl h-full">
-                                <Icon className={cn('h-10 w-10', item.color === 'green' ? 'text-accent-foreground' : 'text-secondary-foreground')} />
+                                <Icon className={cn('h-10 w-10', item.color === 'primary' ? 'text-primary' : 'text-secondary')} />
                                 <h3 className="font-headline text-2xl font-bold mt-4 mb-2">{item.grade}</h3>
                                 <p className="text-muted-foreground mb-6 flex-grow">
                                     {item.topics.join(' • ')}
@@ -81,11 +81,8 @@ export default function ClassesSection() {
                                 <Button
                                     asChild
                                     size="lg"
-                                    variant={item.color === 'orange' ? 'secondary' : 'default'}
-                                    className={cn(
-                                        'w-full rounded-full',
-                                        item.color === 'green' && 'bg-accent text-accent-foreground hover:bg-accent/90'
-                                    )}
+                                    variant={item.color === 'secondary' ? 'secondary' : 'default'}
+                                    className='w-full rounded-full'
                                 >
                                     <Link href="#">{t.buttonText}</Link>
                                 </Button>

@@ -62,7 +62,7 @@ export default function AboutSection() {
             <p className="text-muted-foreground mb-6 max-w-md">
               {t.description}
             </p>
-            <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+            <Button asChild size="lg" variant="secondary">
               <Link href="#">{t.learnMore}</Link>
             </Button>
           </div>

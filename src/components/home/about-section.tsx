@@ -56,10 +56,10 @@ export default function AboutSection() {
             />
           </div>
           <div className="text-center md:text-left">
-            <h2 className="text-3xl font-bold font-headline mb-4 text-foreground">
+            <h2 className="text-3xl font-bold font-headline mb-4 text-card-foreground">
               {t.title}
             </h2>
-            <p className="text-muted-foreground mb-6 max-w-md">
+            <p className="text-card-foreground/80 mb-6 max-w-md">
               {t.description}
             </p>
             <Button asChild size="lg" variant="secondary">

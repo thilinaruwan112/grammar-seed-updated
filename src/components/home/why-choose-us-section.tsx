@@ -8,15 +8,15 @@ import { useLanguage } from '../language-provider';
 
 const whyChooseUsData = {
   en: [
-    { icon: Users, title: 'Personalized Attention', description: 'Small class sizes ensure individual focus.', color: 'secondary' },
+    { icon: Users, title: 'Personalized Attention', description: 'Small class sizes ensure individual focus.', color: 'yellow' },
     { icon: LineChart, title: 'Proven Results', description: '95% of students improve their grades.', color: 'white' },
-    { icon: Heart, title: 'Friendly Teaching', description: 'Warm, encouraging learning environment.', color: 'secondary', isFilled: true },
+    { icon: Heart, title: 'Friendly Teaching', description: 'Warm, encouraging learning environment.', color: 'yellow', isFilled: true },
     { icon: Laptop, title: 'Flexible Classes', description: 'Both online and physical classes available.', color: 'white' },
   ],
   si: [
-    { icon: Users, title: 'පෞද්ගලික අවධානය', description: 'කුඩා පන්ති කාමර නිසා තනි අවධානය.', color: 'secondary' },
+    { icon: Users, title: 'පෞද්ගලික අවධානය', description: 'කුඩා පන්ති කාමර නිසා තනි අවධානය.', color: 'yellow' },
     { icon: LineChart, title: 'ඔප්පු කළ ප්‍රතිඵල', description: '95% සිසුන්ගේ ලකුණු වැඩි දියුණු වේ.', color: 'white' },
-    { icon: Heart, title: 'මිත්‍රශීලී ඉගැන්වීම', description: 'උණුසුම්, දිරිගන්වන ඉගෙනුම් පරිසරයක්.', color: 'secondary', isFilled: true },
+    { icon: Heart, title: 'මිත්‍රශීලී ඉගැන්වීම', description: 'උණුසුම්, දිරිගන්වන ඉගෙනුම් පරිසරයක්.', color: 'yellow', isFilled: true },
     { icon: Laptop, title: 'නම්‍යශීලී පන්ති', description: 'මාර්ගගත සහ භෞතික පන්ති දෙකම ඇත.', color: 'white' },
   ],
 };
@@ -64,20 +64,20 @@ export default function WhyChooseUsSection() {
                         <Card key={index} className="p-8 text-center flex flex-col items-center shadow-lg rounded-2xl bg-card">
                             <div className={cn(
                                 "mb-4 flex h-16 w-16 items-center justify-center rounded-full",
-                                item.color === 'secondary' && 'bg-secondary',
+                                item.color === 'yellow' && 'bg-secondary',
                                 item.color === 'white' && 'bg-white'
                             )}>
                                 <item.icon
                                     className={cn(
                                         "h-8 w-8",
-                                        item.color === 'secondary' && 'text-secondary-foreground',
+                                        item.color === 'yellow' && 'text-secondary-foreground',
                                         item.color === 'white' && 'text-primary'
                                     )}
                                     {...(item.isFilled && { fill: 'currentColor' })}
                                 />
                             </div>
                             <h3 className="font-headline text-xl font-bold mb-2">{item.title}</h3>
-                            <p className="text-muted-foreground">{item.description}</p>
+                            <p className="text-muted-foreground font-light">{item.description}</p>
                         </Card>
                     ))}
                 </div>

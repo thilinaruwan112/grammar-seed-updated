@@ -47,7 +47,7 @@ export default function HeroSection() {
       variants={sectionVariants}
     >
       <Image
-        src="https://images.unsplash.com/photo-1624963145509-5b52cba74cee?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8c3JpJTIwbGFua2F8ZW58MHx8fHwxNzUxODIwMzEwfDA&ixlib=rb-4.1.0&q=80&w=1080"
+        src="https://content-provider.payshia.com/grammar-seed/grammer-seed-hero-optimized.webp"
         alt="Sri Lankan students studying"
         fill
         className="object-cover"

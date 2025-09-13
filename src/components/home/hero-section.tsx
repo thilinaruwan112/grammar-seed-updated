@@ -8,30 +8,30 @@ import { useLanguage } from '../language-provider';
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 20 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { 
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
       duration: 0.6,
-      ease: "easeOut"
-    } 
-  }
+      ease: 'easeOut',
+    },
+  },
 };
 
 const translations = {
   en: {
-    subtitle: 'From Grade 6 to O/L',
-    title: 'Master English with Confidence',
-    description: 'Trusted English classes tailored for Sri Lankan students.',
-    joinButton: 'Join a Class',
-    scheduleButton: 'See Class Schedule',
+    subtitle: 'PLANTING GRAMMAR | GROWING MINDS',
+    title: 'Master grammar from grade 6 to 11 students',
+    description: 'Grow smarter, write better and score higher in examinations',
+    scheduleButton: 'See class schedules',
+    loginButton: 'Student Login',
   },
   si: {
-    subtitle: '6 ශ්‍රේණියේ සිට අ.පො.ස. (සා/පෙළ) දක්වා',
-    title: 'විශ්වාසයෙන් ඉංග්‍රීසි ප්‍රගුණ කරන්න',
-    description: 'ශ්‍රී ලාංකික සිසුන් සඳහාම සැකසූ විශ්වාසනීය ඉංග්‍රීසි පන්ති.',
-    joinButton: 'පන්තියට සම්බන්ධ වන්න',
-    scheduleButton: 'පන්ති කාලසටහන බලන්න',
+    subtitle: 'ව්‍යාකරණ රෝපණය | මනස වර්ධනය',
+    title: '6 සිට 11 ශ්‍රේණිය දක්වා සිසුන් සඳහා ව්‍යාකරණ ප්‍රගුණ කරන්න',
+    description: 'වඩාත් බුද්ධිමත් වන්න, වඩා හොඳින් ලියන්න සහ විභාග වලින් ඉහළ ලකුණු ලබා ගන්න',
+    scheduleButton: 'පන්ති කාලසටහන් බලන්න',
+    loginButton: 'ශිෂ්‍ය පිවිසුම',
   },
 };
 
@@ -40,7 +40,7 @@ export default function HeroSection() {
   const t = translations[language] || translations.en;
 
   return (
-    <motion.section 
+    <motion.section
       className="relative h-screen w-full"
       initial="hidden"
       animate="visible"
@@ -65,10 +65,10 @@ export default function HeroSection() {
         </p>
         <div className="flex flex-col gap-4 sm:flex-row">
           <Button asChild size="lg">
-            <Link href="#">{t.joinButton}</Link>
+            <Link href="/classes">{t.scheduleButton}</Link>
           </Button>
           <Button asChild size="lg" variant="secondary">
-            <Link href="#">{t.scheduleButton}</Link>
+            <Link href="/register">{t.loginButton}</Link>
           </Button>
         </div>
       </div>

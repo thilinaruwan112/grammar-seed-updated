@@ -21,12 +21,12 @@ const sectionVariants = {
 const translations = {
   en: {
     title: 'About Your Teacher',
-    description: '10+ years of experience in teaching English for O/L and Junior Grades. Passionate about helping Sri Lankan students excel in English with personalized attention and proven methods.',
+    description: 'Mr. Shehan Jayawardhana specializes in teaching English for Grades 9-11, focusing on grammar and premium writing skills to help students achieve top exam results.',
     learnMore: 'Learn More',
   },
   si: {
     title: 'ඔබේ ගුරුවරයා ගැන',
-    description: 'අ.පො.ස. (සා/පෙළ) සහ කනිෂ්ඨ ශ්‍රේණි සඳහා ඉංග්‍රීසි ඉගැන්වීමේ වසර 10+ ක පළපුරුද්ද. පෞද්ගලික අවධානය සහ ඔප්පු කරන ලද ක්‍රමවේද සමඟින් ශ්‍රී ලාංකික සිසුන්ට ඉංග්‍රීසි භාෂාවෙන් විශිෂ්ට වීමට උපකාර කිරීමට කැපවී සිටී.',
+    description: 'ශිහාන් ජයවර්ධන මහතා 9-11 ශ්‍රේණි සඳහා ඉංග්‍රීසි ඉගැන්වීමට විශේෂත්වයක් දක්වන අතර, ව්‍යාකරණ සහ උසස් ලිවීමේ කුසලතා කෙරෙහි අවධානය යොමු කරමින් සිසුන්ට ඉහළ විභාග ප්‍රතිඵල ලබා ගැනීමට උපකාර කරයි.',
     learnMore: 'වැඩිදුර ඉගෙන ගන්න',
   },
 };
@@ -63,7 +63,7 @@ export default function AboutSection() {
               {t.description}
             </p>
             <Button asChild size="lg" variant="secondary">
-              <Link href="#">{t.learnMore}</Link>
+              <Link href="/about">{t.learnMore}</Link>
             </Button>
           </div>
         </div>

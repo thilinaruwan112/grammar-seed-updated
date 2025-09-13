@@ -2,7 +2,7 @@
 'use client';
 
 import Image from 'next/image';
-import { Star, GraduationCap } from 'lucide-react';
+import { Star, GraduationCap, Briefcase } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const sectionVariants = {
@@ -29,7 +29,7 @@ export default function TeacherProfileSection() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold font-headline text-foreground">
-            Who's Behind Grammar Seed?
+            About your teacher
           </h2>
           <div className="mt-4 w-24 h-1 bg-secondary-foreground mx-auto" />
         </div>
@@ -39,7 +39,7 @@ export default function TeacherProfileSection() {
             <div className="relative">
               <Image
                 src="https://placehold.co/400x400.png"
-                alt="Mr. Saman Silva"
+                alt="Mr. Shehan Jayawardhana"
                 width={400}
                 height={400}
                 className="rounded-full object-cover shadow-2xl"
@@ -51,28 +51,39 @@ export default function TeacherProfileSection() {
           
           <div className="text-center md:text-left">
             <h3 className="text-3xl font-bold font-headline text-foreground mb-2">
-              Mr. Saman Silva
+              Mr. Shehan Jayawardhana
             </h3>
             <div className="inline-block bg-secondary text-secondary-foreground text-sm font-semibold px-4 py-2 rounded-full mb-6">
-              B.A. in English Literature | TESL Certified
+              Founder & Lead Lecturer
             </div>
             
             <p className="text-lg text-muted-foreground mb-4">
-              Over 10 years of helping students from Grade 6 to 11 succeed in English
+              I specialize in teaching school English syllabuses for Grades 9 – 11, with a strong focus on grammar and writing. My goal is to help students build premium-level writing skills—especially in essay writing—by developing clear thinking and confident expression.
             </p>
             <p className="text-muted-foreground mb-8">
-              Teaching isn't just my profession—it's my passion. I believe every student has the potential to excel in English, and I'm here to unlock that potential. Having grown up in Sri Lanka, I understand the unique challenges our students face, and I've developed methods that make English both accessible and enjoyable.
+              At Grammar Seed College, we believe that strong grammar leads to strong minds. Every lesson is designed to guide students toward top exam results in English.
             </p>
             
-            <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-6 text-foreground">
-              <div className="flex items-center gap-2 font-medium">
-                <Star className="h-5 w-5 text-secondary-foreground" fill="currentColor" />
-                <span>500+ Students Taught</span>
-              </div>
-              <div className="flex items-center gap-2 font-medium">
-                <GraduationCap className="h-5 w-5 text-secondary-foreground" />
-                <span>95% Success Rate</span>
-              </div>
+            <div className="space-y-4 text-left">
+                <h4 className="text-xl font-bold font-headline text-foreground mb-2">Experience & Qualifications</h4>
+                <div className="flex items-center gap-4 text-foreground">
+                    <Briefcase className="h-5 w-5 text-secondary-foreground" />
+                    <span>2 years of experience in online education</span>
+                </div>
+                <div className="flex items-center gap-4 text-foreground">
+                    <GraduationCap className="h-5 w-5 text-secondary-foreground" />
+                    <span>English Diploma holder, University of Sabaragamuwa, Sri Lanka</span>
+                </div>
+                 <div className="flex flex-col sm:flex-row items-start sm:items-center justify-start gap-6 text-foreground mt-4">
+                    <div className="flex items-center gap-2 font-medium">
+                        <Star className="h-5 w-5 text-secondary-foreground" fill="currentColor" />
+                        <span>500+ Students Taught</span>
+                    </div>
+                    <div className="flex items-center gap-2 font-medium">
+                        <GraduationCap className="h-5 w-5 text-secondary-foreground" />
+                        <span>95% Success Rate</span>
+                    </div>
+                </div>
             </div>
           </div>
         </div>

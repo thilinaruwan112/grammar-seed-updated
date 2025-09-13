@@ -1,10 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Card } from '@/components/ui/card';
-import { cn } from '@/lib/utils';
+import { Card, CardContent } from '@/components/ui/card';
 import { UserCheck, BookOpen, FileText, Laptop } from 'lucide-react';
-import type { LucideIcon } from 'lucide-react';
 import { useLanguage } from '../language-provider';
 
 const whyChooseUsData = {
@@ -29,16 +27,22 @@ const whyChooseUsData = {
 };
 
 const sectionVariants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 50 },
   visible: { 
     opacity: 1, 
     y: 0, 
     transition: { 
       duration: 0.6,
+      staggerChildren: 0.15,
       ease: "easeOut"
     } 
   }
 };
+
+const itemVariants = {
+    hidden: { opacity: 0, scale: 0.95 },
+    visible: { opacity: 1, scale: 1 }
+}
 
 export default function WhyChooseUsSection() {
     const { language } = useLanguage();
@@ -46,25 +50,29 @@ export default function WhyChooseUsSection() {
 
     return (
         <motion.section
-            className="py-16 bg-primary text-primary-foreground"
+            className="py-24 bg-primary text-primary-foreground"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
             variants={sectionVariants}
         >
             <div className="container mx-auto px-4 text-center">
-                <h2 className="text-3xl font-bold font-headline mb-12">
+                <h2 className="text-3xl md:text-4xl font-bold font-headline mb-16">
                     {t.title}
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                     {t.features.map((item, index) => (
-                        <Card key={index} className="p-8 text-center flex flex-col items-center shadow-lg rounded-2xl bg-primary border-primary-foreground/20">
-                            <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary-foreground/10">
-                                <item.icon className="h-8 w-8 text-white" />
-                            </div>
-                            <h3 className="font-headline text-xl font-bold mb-2">{item.title}</h3>
-                            <p className="text-primary-foreground/80 font-light">{item.description}</p>
-                        </Card>
+                        <motion.div key={index} variants={itemVariants}>
+                            <Card className="bg-primary border-primary-foreground/20 text-center p-6 rounded-2xl h-full shadow-lg hover:shadow-primary-foreground/20 transition-shadow duration-300">
+                                <CardContent className="p-0 flex flex-col items-center justify-center">
+                                    <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary-foreground/10 mb-6">
+                                        <item.icon className="h-8 w-8 text-white" />
+                                    </div>
+                                    <h3 className="font-headline text-xl font-bold mb-2">{item.title}</h3>
+                                    <p className="text-primary-foreground/80">{item.description}</p>
+                                </CardContent>
+                            </Card>
+                        </motion.div>
                     ))}
                 </div>
             </div>

@@ -14,9 +14,9 @@ export default function Home() {
       <HeroSection />
       <AboutSection />
       <TeachingApproachSection />
+      <ClassesSection />
       <StatsSection />
       <WhyChooseUsSection />
-      <ClassesSection />
       <TestimonialsSection />
       <NewsSection />
       <CtaSection />

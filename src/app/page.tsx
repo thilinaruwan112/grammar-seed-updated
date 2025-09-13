@@ -6,6 +6,7 @@ import NewsSection from '@/components/home/news-section';
 import CtaSection from '@/components/home/cta-section';
 import TeachingApproachSection from '@/components/home/teaching-approach-section';
 import WhyChooseUsSection from '@/components/home/why-choose-us-section';
+import StatsSection from '@/components/home/stats-section';
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <AboutSection />
       <TeachingApproachSection />
       <ClassesSection />
+      <StatsSection />
       <WhyChooseUsSection />
       <TestimonialsSection />
       <NewsSection />

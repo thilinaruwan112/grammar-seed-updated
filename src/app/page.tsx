@@ -6,6 +6,7 @@ import TestimonialsSection from '@/components/home/testimonials-section';
 import NewsSection from '@/components/home/news-section';
 import CtaSection from '@/components/home/cta-section';
 import TeachingApproachSection from '@/components/home/teaching-approach-section';
+import StatsSection from '@/components/home/stats-section';
 
 export default function Home() {
   return (
@@ -13,8 +14,9 @@ export default function Home() {
       <HeroSection />
       <AboutSection />
       <TeachingApproachSection />
-      <ClassesSection />
+      <StatsSection />
       <WhyChooseUsSection />
+      <ClassesSection />
       <TestimonialsSection />
       <NewsSection />
       <CtaSection />

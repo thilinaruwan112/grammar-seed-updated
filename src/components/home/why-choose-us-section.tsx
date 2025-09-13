@@ -65,7 +65,7 @@ export default function WhyChooseUsSection() {
                         <motion.div key={index} variants={itemVariants}>
                             <Card className="bg-primary border-primary-foreground/20 text-center p-6 rounded-2xl h-full shadow-lg hover:shadow-primary-foreground/20 transition-shadow duration-300">
                                 <CardContent className="p-0 flex flex-col items-center justify-center">
-                                    <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary-foreground/10 mb-6">
+                                    <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary-foreground/10 mb-4">
                                         <item.icon className="h-8 w-8 text-white" />
                                     </div>
                                     <h3 className="font-headline text-xl font-bold mb-2">{item.title}</h3>

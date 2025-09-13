@@ -38,7 +38,7 @@ export default function TeacherProfileSection() {
           <div className="flex justify-center">
             <div className="relative">
               <Image
-                src="https://placehold.co/400x400.png"
+                src="https://content-provider.payshia.com/grammar-seed/square-optimized.webp"
                 alt="Mr. Shehan Jayawardhana"
                 width={400}
                 height={400}

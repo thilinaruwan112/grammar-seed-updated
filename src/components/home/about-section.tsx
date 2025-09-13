@@ -47,7 +47,7 @@ export default function AboutSection() {
         <div className="max-w-4xl mx-auto bg-card p-8 md:p-12 rounded-2xl shadow-xl flex flex-col md:flex-row items-center gap-8 md:gap-12">
           <div className="flex-shrink-0">
             <Image
-              src="https://placehold.co/150x150.png"
+              src="https://content-provider.payshia.com/grammar-seed/square-optimized.webp"
               alt="Teacher"
               width={150}
               height={150}

@@ -24,9 +24,9 @@ const classLinks = [
 ];
 
 const contactInfo = [
-  { icon: Phone, text: '+94 77 123 4567', href: 'tel:+94771234567' },
-  { icon: Phone, text: '+94 77 123 4567', href: 'tel:+94771234567' },
-  { icon: Mail, text: 'info@grammarseed.lk', href: 'mailto:info@grammarseed.lk' },
+  { icon: Phone, text: '+94 71 451 90 84 (Call)', href: 'tel:+94714519084' },
+  { icon: Phone, text: '+94 70 787 92 92 (WhatsApp)', href: 'https://wa.me/94707879292' },
+  { icon: Mail, text: 'grammarseedcollege@gmail.com', href: 'mailto:grammarseedcollege@gmail.com' },
 ];
 
 
@@ -90,10 +90,11 @@ export default function Footer() {
             <ul className="mt-4 space-y-4">
               {contactInfo.map((item, index) => {
                 const Icon = item.icon;
+                const isWhatsApp = item.text.includes('WhatsApp');
                 return (
                   <li key={index} className="flex items-center space-x-3">
                     <Icon className="h-5 w-5 flex-shrink-0 text-primary" />
-                    <a href={item.href} className="text-base text-muted-foreground hover:text-foreground">{item.text}</a>
+                    <a href={item.href} target={isWhatsApp ? '_blank' : undefined} rel={isWhatsApp ? 'noopener noreferrer' : undefined} className="text-base text-muted-foreground hover:text-foreground">{item.text}</a>
                   </li>
                 )
               })}

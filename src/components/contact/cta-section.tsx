@@ -46,7 +46,7 @@ export default function CtaSection() {
             size="lg"
             className="bg-orange-500 hover:bg-orange-600 text-white"
           >
-            <Link href="#">Start on WhatsApp</Link>
+            <Link href="https://wa.me/94707879292" target="_blank">Chat Now</Link>
           </Button>
         </div>
       </div>

@@ -27,9 +27,9 @@ const contactMethods = [
     {
         icon: Phone,
         title: 'Phone / WhatsApp',
-        details: 'Call or Message: +94 7XX XXX XXX',
+        details: 'Call or Message: +94 70 787 92 92',
         buttonText: 'Message on WhatsApp',
-        buttonLink: '#',
+        buttonLink: 'https://wa.me/94707879292',
         iconBg: 'bg-green-100 dark:bg-green-900/30',
         iconColor: 'text-green-600 dark:text-green-400',
         buttonClass: 'bg-green-500 hover:bg-green-600 text-white'
@@ -37,9 +37,9 @@ const contactMethods = [
     {
         icon: Mail,
         title: 'Email',
-        details: 'grammarsheet@gmail.com',
+        details: 'grammarseedcollege@gmail.com',
         buttonText: 'Send Email',
-        buttonLink: 'mailto:grammarsheet@gmail.com',
+        buttonLink: 'mailto:grammarseedcollege@gmail.com',
         iconBg: 'bg-blue-100 dark:bg-blue-900/30',
         iconColor: 'text-blue-600 dark:text-blue-400',
         buttonClass: 'bg-blue-600 hover:bg-blue-700 text-white'
@@ -47,7 +47,7 @@ const contactMethods = [
     {
         icon: MapPin,
         title: 'Location',
-        details: 'No. 123, Kandy Road, Gampaha',
+        details: 'No. 50/1, Dharmapala Mawatha, Pelmadulla.',
         map: true,
         iconBg: 'bg-orange-100 dark:bg-orange-900/30',
         iconColor: 'text-orange-600 dark:text-orange-400',
@@ -106,7 +106,7 @@ export default function HeroSection() {
                                         </div>
                                         {method.buttonText && (
                                             <Button asChild className={method.buttonClass}>
-                                                <Link href={method.buttonLink}>{method.buttonText}</Link>
+                                                <Link href={method.buttonLink} target="_blank">{method.buttonText}</Link>
                                             </Button>
                                         )}
                                         {method.map && (

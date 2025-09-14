@@ -48,7 +48,7 @@ const contactMethods = [
         icon: MapPin,
         title: 'Location',
         details: 'No. 50/1, Dharmapala Mawatha, Pelmadulla.',
-        map: true,
+        map: false,
         iconBg: 'bg-orange-100 dark:bg-orange-900/30',
         iconColor: 'text-orange-600 dark:text-orange-400',
     }

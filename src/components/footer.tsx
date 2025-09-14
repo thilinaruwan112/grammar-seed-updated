@@ -17,14 +17,14 @@ const quickLinks = [
 ];
 
 const classLinks = [
-    { href: '#', label: 'Grade 6-8' },
-    { href: '#', label: 'Grade 9-10' },
-    { href: '#', label: 'Grade 11' },
-    { href: '#', label: 'Trial Classes' },
+    { href: '/classes/grade-9', label: 'Grade 9' },
+    { href: '/classes/grade-10', label: 'Grade 10' },
+    { href: '/classes/grade-11', label: 'Grade 11' },
+    { href: '/classes/revision-english', label: 'English Revision' },
+    { href: '/classes/revision-essay', label: 'Essay Revision' },
 ];
 
 const contactInfo = [
-  { icon: Phone, text: '+94 71 451 90 84 (Call)', href: 'tel:+94714519084' },
   { icon: Phone, text: '+94 70 787 92 92 (WhatsApp)', href: 'https://wa.me/94707879292' },
   { icon: Mail, text: 'grammarseedcollege@gmail.com', href: 'mailto:grammarseedcollege@gmail.com' },
 ];
@@ -42,7 +42,7 @@ export default function Footer() {
               <span className="font-bold text-2xl text-foreground">Grammar Seed</span>
             </Link>
             <p className="text-sm text-muted-foreground max-w-xs">
-              Excellence in English Education for Sri Lankan Students
+              Excellence in English Education for Sri Lankan Students.
             </p>
             <div className="flex space-x-4 pt-2">
               {socialLinks.map((link) => {
@@ -92,8 +92,8 @@ export default function Footer() {
                 const Icon = item.icon;
                 const isWhatsApp = item.text.includes('WhatsApp');
                 return (
-                  <li key={index} className="flex items-center space-x-3">
-                    <Icon className="h-5 w-5 flex-shrink-0 text-primary" />
+                  <li key={index} className="flex items-start space-x-3">
+                    <Icon className="h-5 w-5 flex-shrink-0 text-primary mt-1" />
                     <a href={item.href} target={isWhatsApp ? '_blank' : undefined} rel={isWhatsApp ? 'noopener noreferrer' : undefined} className="text-base text-muted-foreground hover:text-foreground">{item.text}</a>
                   </li>
                 )
@@ -102,11 +102,8 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 border-t border-border pt-8 flex flex-col md:flex-row items-center justify-between">
+        <div className="mt-16 border-t border-border pt-8 text-center">
           <p className="text-sm text-muted-foreground">&copy; {new Date().getFullYear()} Grammar Seed. All rights reserved.</p>
-          <p className="text-sm text-muted-foreground mt-2 md:mt-0">
-            Powered by <a href="https://payshia.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-foreground">Payshia Software Solutions</a>
-          </p>
         </div>
       </div>
     </footer>

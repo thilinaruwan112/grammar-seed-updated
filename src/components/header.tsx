@@ -162,7 +162,7 @@ function ClassesDropdownMenu() {
   );
 }
 
-function MobileClassesAccordion() {
+function MobileClassesAccordion({ onLinkClick }: { onLinkClick: () => void }) {
   const { language } = useLanguage();
   const currentClassData = classDetailsData[language] || classDetailsData.en;
   const t = {
@@ -193,20 +193,20 @@ function MobileClassesAccordion() {
   return (
     <Accordion type="single" collapsible className="w-full">
       <AccordionItem value="item-1" className="border-b-0">
-        <AccordionTrigger className="rounded-md px-4 py-3 text-lg font-medium transition-colors text-foreground hover:bg-muted hover:no-underline [&[data-state=open]]:bg-muted">
-          Classes
+        <AccordionTrigger className="flex w-full items-center justify-between rounded-md px-4 py-3 text-lg font-medium text-foreground transition-colors hover:bg-muted hover:no-underline [&[data-state=open]]:bg-muted">
+          <span>Classes</span>
         </AccordionTrigger>
         <AccordionContent className="pb-0">
           <div className="flex flex-col space-y-1 pl-8 pr-4 pt-2">
             <h4 className="font-semibold text-muted-foreground text-sm mb-2">{t.theory}</h4>
             {theoryClasses.map(({ href, label }) => (
-              <Link key={href} href={href} className="block rounded-md p-2 text-base font-medium text-foreground hover:bg-muted/80">
+              <Link key={href} href={href} onClick={onLinkClick} className="block rounded-md p-2 text-base font-medium text-left text-foreground hover:bg-muted/80">
                 {label}
               </Link>
             ))}
             <h4 className="font-semibold text-muted-foreground text-sm mt-4 mb-2">{t.revision}</h4>
             {revisionClasses.map(({ href, label }) => (
-              <Link key={href} href={href} className="block rounded-md p-2 text-base font-medium text-foreground hover:bg-muted/80">
+              <Link key={href} href={href} onClick={onLinkClick} className="block rounded-md p-2 text-base font-medium text-left text-foreground hover:bg-muted/80">
                 {label}
               </Link>
             ))}
@@ -281,13 +281,13 @@ export default function Header() {
                     {navLinks.map(({ href, label }) => (
                        <motion.div key={label} variants={mobileNavItemVariants}>
                          {href === '/classes' ? (
-                           <MobileClassesAccordion />
+                           <MobileClassesAccordion onLinkClick={() => setOpen(false)} />
                          ) : (
                           <Link
                             href={href}
                             onClick={() => setOpen(false)}
                             className={cn(
-                              'block rounded-md px-4 py-3 text-lg font-medium transition-colors',
+                              'block rounded-md px-4 py-3 text-lg font-medium transition-colors text-left',
                               pathname === href
                                 ? 'bg-primary text-primary-foreground'
                                 : 'text-foreground hover:bg-muted'
@@ -316,5 +316,3 @@ export default function Header() {
     </header>
   );
 }
-
-    

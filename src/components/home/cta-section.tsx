@@ -50,7 +50,7 @@ export default function CtaSection() {
                     {t.description}
                 </p>
                 <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 rounded-full font-semibold px-10 py-6 text-lg">
-                    <Link href="#">{t.buttonText}</Link>
+                    <Link href="/contact">{t.buttonText}</Link>
                 </Button>
             </div>
         </motion.section>

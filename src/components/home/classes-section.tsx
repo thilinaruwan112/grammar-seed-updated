@@ -5,23 +5,22 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { useLanguage } from '../language-provider';
-import { ArrowRight, BookOpen, Edit } from 'lucide-react';
+import { ArrowRight, BookOpen, Edit, Clock, Monitor } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { LucideIcon } from 'lucide-react';
 
+type ClassInfo = {
+  grade: string | number;
+  title: string;
+  icon: LucideIcon;
+  colorClasses: string;
+  description?: string;
+  details?: string[];
+};
+
 type ClassData = {
-  en: {
-    grade: string | number;
-    title: string;
-    icon: LucideIcon;
-    colorClasses: string;
-  }[];
-  si: {
-    grade: string | number;
-    title: string;
-    icon: LucideIcon;
-    colorClasses: string;
-  }[];
+  en: ClassInfo[];
+  si: ClassInfo[];
 };
 
 const classesData: ClassData = {
@@ -31,6 +30,8 @@ const classesData: ClassData = {
       title: 'Grade 9',
       icon: BookOpen,
       colorClasses: 'bg-primary text-primary-foreground',
+      description: 'Start your Theory lessons here. Learn step by step and get better marks in your term test exams.',
+      details: ['2 hrs/ Week', 'Online'],
     },
     {
       grade: 10,
@@ -63,6 +64,8 @@ const classesData: ClassData = {
       title: '9 ශ්‍රේණිය',
       icon: BookOpen,
       colorClasses: 'bg-primary text-primary-foreground',
+      description: 'ඔබේ සිද්ධාන්ත පාඩම් මෙතැනින් ආරම්භ කරන්න. පියවරෙන් පියවර ඉගෙන ගෙන ඔබගේ වාර පරීක්ෂණ විභාග වලින් වඩා හොඳ ලකුණු ලබා ගන්න.',
+      details: ['සතියට පැය 2', 'ඔන්ලයින්'],
     },
     {
       grade: 10,
@@ -96,12 +99,12 @@ const translations = {
   en: {
     title: 'Class details and schedules | Grade 9 – 11',
     subtitle: 'Pick your grade unlock your class',
-    buttonText: 'Unlock Class',
+    buttonText: 'More Details',
   },
   si: {
     title: 'පන්ති විස්තර සහ කාලසටහන් | 9 – 11 ශ්‍රේණිය',
     subtitle: 'ඔබේ ශ්‍රේණිය තෝරා ඔබේ පන්තියට පිවිසෙන්න',
-    buttonText: 'පන්තියට ඇතුල් වන්න',
+    buttonText: 'වැඩි විස්තර',
   },
 };
 
@@ -152,6 +155,23 @@ export default function ClassesSection() {
                               <h3 className="font-headline text-2xl font-bold text-foreground mb-4">
                                 {item.title}
                               </h3>
+                              
+                              {item.description && (
+                                <p className="text-muted-foreground mb-4 flex-grow">{item.description}</p>
+                              )}
+
+                              {item.details && (
+                                <div className="flex justify-center gap-4 mb-6 text-muted-foreground">
+                                  <div className="flex items-center gap-2">
+                                    <Clock className="h-4 w-4" />
+                                    <span>{item.details[0]}</span>
+                                  </div>
+                                  <div className="flex items-center gap-2">
+                                    <Monitor className="h-4 w-4" />
+                                    <span>{item.details[1]}</span>
+                                  </div>
+                                </div>
+                              )}
                               
                               <Button asChild className='mt-auto w-full' variant={item.grade.toString().includes('revision') ? 'accent' : 'default'}>
                                 <Link href={`/classes/${item.grade}`}>

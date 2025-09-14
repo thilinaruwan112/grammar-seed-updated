@@ -17,7 +17,6 @@ const navLinksData = {
     { href: '/about', label: 'About' },
     { href: '/classes', label: 'Classes' },
     { href: '/reviews', label: 'Reviews' },
-    { href: '/news', label: 'News' },
     { href: '/contact', label: 'Contact' },
   ],
   si: [
@@ -25,7 +24,6 @@ const navLinksData = {
     { href: '/about', label: 'පිළිබඳව' },
     { href: '/classes', label: 'පන්ති' },
     { href: '/reviews', label: 'සමාලෝචන' },
-    { href: '/news', label: 'පුවත්' },
     { href: '/contact', label: 'සම්බන්ධ වන්න' },
   ]
 };

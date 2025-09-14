@@ -7,6 +7,7 @@ import { UserPlus } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import {
+  Card,
   CardContent,
   CardDescription,
   CardFooter,
@@ -14,13 +15,6 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select';
 import {
   Form,
   FormControl,
@@ -30,6 +24,8 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { classDetailsData } from '@/lib/class-data';
+import { Checkbox } from '../ui/checkbox';
+import { cn } from '@/lib/utils';
 
 const formSchema = z
   .object({
@@ -37,7 +33,9 @@ const formSchema = z
     password: z.string().min(8, { message: 'Password must be at least 8 characters.' }),
     confirmPassword: z.string(),
     mobile: z.string().min(10, { message: 'Please enter a valid mobile number.' }),
-    selectedClass: z.string({ required_error: 'Please select a class.' }),
+    selectedClasses: z.array(z.string()).refine(value => value.some(item => item), {
+      message: 'You have to select at least one class.',
+    }),
   })
   .refine((data) => data.password === data.confirmPassword, {
     message: "Passwords don't match",
@@ -49,7 +47,7 @@ type FormValues = z.infer<typeof formSchema>;
 const classOptions = Object.keys(classDetailsData)
   .filter(key => key.startsWith('grade-') || key.startsWith('revision-'))
   .map(key => ({
-    value: key,
+    id: key,
     label: classDetailsData[key].fullTitle || `${classDetailsData[key].title} - Grade ${classDetailsData[key].grade}`,
   }));
 
@@ -62,6 +60,7 @@ export default function RegistrationForm() {
       password: '',
       confirmPassword: '',
       mobile: '',
+      selectedClasses: [],
     },
     mode: 'onChange',
   });
@@ -112,18 +111,58 @@ export default function RegistrationForm() {
                     </FormItem>
                 )} />
             </div>
-             <FormField control={form.control} name="selectedClass" render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Select Class</FormLabel>
-                    <Select onValueChange={field.onChange} defaultValue={field.value}>
-                      <FormControl><SelectTrigger><SelectValue placeholder="Choose a class to enroll in" /></SelectTrigger></FormControl>
-                      <SelectContent>
-                        {classOptions.map((opt) => <SelectItem key={opt.value} value={opt.value}>{opt.label}</SelectItem>)}
-                      </SelectContent>
-                    </Select>
-                    <FormMessage />
-                  </FormItem>
-                )} />
+             <FormField
+              control={form.control}
+              name="selectedClasses"
+              render={() => (
+                <FormItem>
+                  <div className="mb-4">
+                    <FormLabel className="text-base">Select Classes</FormLabel>
+                    <CardDescription>You can choose one or more classes to enroll in.</CardDescription>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {classOptions.map((item) => (
+                    <FormField
+                      key={item.id}
+                      control={form.control}
+                      name="selectedClasses"
+                      render={({ field }) => {
+                        return (
+                          <FormItem
+                            key={item.id}
+                            className="flex flex-row items-start space-x-3 space-y-0"
+                          >
+                            <FormControl>
+                              <Checkbox
+                                checked={field.value?.includes(item.id)}
+                                onCheckedChange={(checked) => {
+                                  return checked
+                                    ? field.onChange([...(field.value || []), item.id])
+                                    : field.onChange(
+                                        field.value?.filter(
+                                          (value) => value !== item.id
+                                        )
+                                      )
+                                }}
+                              />
+                            </FormControl>
+                            <FormLabel className="font-normal w-full cursor-pointer">
+                                <Card className={cn("transition-all", field.value?.includes(item.id) && "border-primary")}>
+                                    <CardContent className="p-4">
+                                        <h3 className="font-semibold">{item.label}</h3>
+                                    </CardContent>
+                                </Card>
+                            </FormLabel>
+                          </FormItem>
+                        )
+                      }}
+                    />
+                  ))}
+                  </div>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
 
             <CardFooter className="px-0 pt-6 flex justify-end">
                 <Button onClick={form.handleSubmit(onSubmit)} type="submit" size="lg">Register <UserPlus className="ml-2 h-4 w-4" /></Button>

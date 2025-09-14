@@ -1,4 +1,5 @@
 
+'use client';
 import { notFound } from 'next/navigation';
 import { classDetailsData } from '@/lib/class-data';
 
@@ -8,6 +9,7 @@ import LearningPlan from '@/components/class-details/learning-plan';
 import StickyClassDetails from '@/components/class-details/sticky-class-details';
 import MonthlyLearningPlan from '@/components/class-details/monthly-learning-plan';
 import ClassDescription from '@/components/class-details/class-description';
+import { useLanguage } from '@/components/language-provider';
 
 type ClassDetailsPageProps = {
   params: {
@@ -17,7 +19,8 @@ type ClassDetailsPageProps = {
 
 export default function ClassDetailsPage({ params }: ClassDetailsPageProps) {
   const { grade } = params;
-  const classDetails = classDetailsData[grade];
+  const { language } = useLanguage();
+  const classDetails = classDetailsData[language]?.[grade];
 
   if (!classDetails) {
     notFound();

@@ -26,6 +26,7 @@ import {
 import { classDetailsData } from '@/lib/class-data';
 import { Checkbox } from '../ui/checkbox';
 import { cn } from '@/lib/utils';
+import { useLanguage } from '../language-provider';
 
 const formSchema = z
   .object({
@@ -44,15 +45,18 @@ const formSchema = z
 
 type FormValues = z.infer<typeof formSchema>;
 
-const classOptions = Object.keys(classDetailsData)
-  .filter(key => key.startsWith('grade-') || key.startsWith('revision-'))
-  .map(key => ({
-    id: key,
-    label: classDetailsData[key].fullTitle || `${classDetailsData[key].title} - Grade ${classDetailsData[key].grade}`,
-  }));
-
 
 export default function RegistrationForm() {
+  const { language } = useLanguage();
+  const currentClassData = classDetailsData[language] || classDetailsData.en;
+
+  const classOptions = Object.keys(currentClassData)
+    .filter(key => key.startsWith('grade-') || key.startsWith('revision-'))
+    .map(key => ({
+      id: key,
+      label: currentClassData[key].fullTitle || `${currentClassData[key].title} - Grade ${currentClassData[key].grade}`,
+    }));
+
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {

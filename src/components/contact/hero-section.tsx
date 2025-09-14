@@ -48,9 +48,11 @@ const contactMethods = [
         icon: MapPin,
         title: 'Location',
         details: 'No. 50/1, Dharmapala Mawatha, Pelmadulla.',
-        map: false,
+        buttonText: 'Get Directions',
+        buttonLink: 'https://www.google.com/maps/search/?api=1&query=No.+50/1,+Dharmapala+Mawatha,+Pelmadulla.',
         iconBg: 'bg-orange-100 dark:bg-orange-900/30',
         iconColor: 'text-orange-600 dark:text-orange-400',
+        buttonClass: 'bg-orange-500 hover:bg-orange-600 text-white'
     }
 ]
 
@@ -108,18 +110,6 @@ export default function HeroSection() {
                                             <Button asChild className={method.buttonClass}>
                                                 <Link href={method.buttonLink} target="_blank">{method.buttonText}</Link>
                                             </Button>
-                                        )}
-                                        {method.map && (
-                                            <div className="w-full h-24 mt-4 rounded-lg overflow-hidden">
-                                                 <Image
-                                                    src="https://placehold.co/400x200.png"
-                                                    alt="Map location"
-                                                    width={400}
-                                                    height={200}
-                                                    className="object-cover w-full h-full"
-                                                    data-ai-hint="map location"
-                                                />
-                                            </div>
                                         )}
                                     </CardContent>
                                 </Card>

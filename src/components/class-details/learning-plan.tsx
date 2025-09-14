@@ -32,6 +32,8 @@ const sectionVariants = {
 };
 
 export default function LearningPlan({ plans }: LearningPlanProps) {
+  const defaultOpenItems = plans.map((_, index) => `item-${index}`);
+  
   return (
     <motion.section
       initial="hidden"
@@ -45,7 +47,7 @@ export default function LearningPlan({ plans }: LearningPlanProps) {
           </h2>
         </div>
 
-        <Accordion type="single" collapsible defaultValue="item-0" className="w-full space-y-4">
+        <Accordion type="multiple" defaultValue={defaultOpenItems} className="w-full space-y-4">
           {plans.map((plan, index) => (
             <AccordionItem
               key={index}

@@ -4,7 +4,6 @@ import { classDetailsData } from '@/lib/class-data';
 
 import ClassHero from '@/components/class-details/class-hero';
 import ClassInfo from '@/components/class-details/class-info';
-import TeacherProfile from '@/components/class-details/teacher-profile';
 import ClassCta from '@/components/class-details/class-cta';
 import LearningPlan from '@/components/class-details/learning-plan';
 
@@ -27,7 +26,6 @@ export default function ClassDetailsPage({ params }: ClassDetailsPageProps) {
       <ClassHero grade={classDetails.grade} title={classDetails.title} />
       <ClassInfo details={classDetails} />
       {classDetails.learningPlan && <LearningPlan plans={classDetails.learningPlan} />}
-      <TeacherProfile teacher={classDetails.teacher} />
       <ClassCta />
     </>
   );

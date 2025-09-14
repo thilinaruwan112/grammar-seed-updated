@@ -69,13 +69,13 @@ export const classDetailsData: { [key: string]: any } = {
   '9': {
     grade: 9,
     title: 'English Theory',
+    fullTitle: 'GRADE 9 ENGLISH THEORY + PAPER CLASS',
     description: 'Learn the full grade 9 syllabus with us.',
     topics: [
-        'O/L Syllabus Grammar Review',
-        'Formal and Informal Letter Writing',
-        'Analyzing O/L Literature Texts',
-        'Time Management for Exams',
-        'Solving Past Papers',
+        'Full Grammar and Writing Syllabus Coverage',
+        'Pupil\'s Book and Workbook Activities',
+        'Term Test Paper Practice and Discussion',
+        'Essay and Letter Writing Skills',
     ],
     learningPlan: [
         {
@@ -94,16 +94,12 @@ export const classDetailsData: { [key: string]: any } = {
           details: 'In the third term, we’ll cover Units 8, 9, and 10 from both the Pupil’s Book and Workbook – Success Through Creativity, The Greatest Wealth and Be Happy,Be Bright,Be you.. . All grammar lessons will be taught clearly and completely. You’ll also practice 10 Third Term English papers, get your marks and discuss all papers to help you improve. It’s all about learning smart and feeling confident!'
         },
     ],
-    schedule: 'Sundays, 2:00 PM - 5:30 PM',
-    format: 'Hybrid',
-    duration: '3.5 hrs/week',
-    studentsPerBatch: 15,
-    fee: 'Rs. 8,000/month',
-    teacher: {
-      name: 'Mr. Saman Silva',
-      image: 'https://placehold.co/100x100.png',
-      imageHint: 'teacher portrait'
-    }
+    schedule: 'Tuesday 6.30 pm – 8.30 pm',
+    format: 'Zoom and YouTube',
+    duration: '2 hrs/week',
+    fee: 'LKR 1000 Per Month',
+    recordings: 'Available',
+    studyPack: 'Available',
   },
   '10': {
     grade: 10,

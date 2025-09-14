@@ -1,7 +1,7 @@
 
 
 import Link from 'next/link';
-import { Facebook, Youtube, Instagram, Phone, Mail, FileText } from 'lucide-react';
+import { Facebook, Youtube, Instagram, Phone, Mail, FileText, MapPin } from 'lucide-react';
 
 const socialLinks = [
   { icon: Facebook, href: '#', label: 'Facebook' },
@@ -29,6 +29,7 @@ const contactInfo = [
   { icon: Phone, text: '+94 70 787 92 92 (WhatsApp)', href: 'https://wa.me/94707879292' },
   { icon: Phone, text: '+94 71 451 90 84 (Call)', href: 'tel:+94714519084' },
   { icon: Mail, text: 'grammarseedcollege@gmail.com', href: 'mailto:grammarseedcollege@gmail.com' },
+  { icon: MapPin, text: 'No. 50/1, Dharmapala Mawatha, Pelmadulla.', href: 'https://www.google.com/maps/search/?api=1&query=No.+50/1,+Dharmapala+Mawatha,+Pelmadulla.' },
 ];
 
 
@@ -92,12 +93,11 @@ export default function Footer() {
             <ul className="mt-4 space-y-4">
               {contactInfo.map((item, index) => {
                 const Icon = item.icon;
-                const isWhatsApp = item.text.includes('WhatsApp');
-                const isCall = item.text.includes('Call');
+                const isExternal = item.href.startsWith('http');
                 return (
                   <li key={index} className="flex items-start space-x-3">
                     <Icon className="h-5 w-5 flex-shrink-0 text-primary mt-1" />
-                    <a href={item.href} target={isWhatsApp ? '_blank' : undefined} rel={isWhatsApp ? 'noopener noreferrer' : undefined} className="text-base text-muted-foreground hover:text-foreground">{item.text}</a>
+                    <a href={item.href} target={isExternal ? '_blank' : undefined} rel={isExternal ? 'noopener noreferrer' : undefined} className="text-base text-muted-foreground hover:text-foreground">{item.text}</a>
                   </li>
                 )
               })}

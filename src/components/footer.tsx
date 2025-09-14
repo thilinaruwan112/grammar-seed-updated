@@ -1,4 +1,5 @@
 
+
 import Link from 'next/link';
 import { Facebook, Youtube, Instagram, Phone, Mail, FileText } from 'lucide-react';
 
@@ -18,9 +19,6 @@ const quickLinks = [
 ];
 
 const classLinks = [
-    { href: '/classes/6', label: 'Grade 6' },
-    { href: '/classes/7', label: 'Grade 7' },
-    { href: '/classes/8', label: 'Grade 8' },
     { href: '/classes/grade-9', label: 'Grade 9' },
     { href: '/classes/grade-10', label: 'Grade 10' },
     { href: '/classes/grade-11', label: 'Grade 11' },

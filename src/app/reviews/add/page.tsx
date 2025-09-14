@@ -1,4 +1,6 @@
 
+'use client';
+
 import AddReviewForm from '@/components/reviews/add-review-form';
 import { Card } from '@/components/ui/card';
 import { motion } from 'framer-motion';

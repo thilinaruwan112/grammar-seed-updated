@@ -6,7 +6,6 @@ import { Toaster } from '@/components/ui/toaster';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import { ThemeProvider } from '@/components/theme-provider';
-import AppWrapper from '@/components/app-wrapper';
 import { LanguageProvider } from '@/components/language-provider';
 import WhatsAppButton from '@/components/whatsapp-button';
 
@@ -75,15 +74,13 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <AppWrapper>
-              <div className="relative flex min-h-dvh flex-col">
-                <Header />
-                <main className="flex-1">{children}</main>
-                <Footer />
-              </div>
-              <WhatsAppButton />
-              <Toaster />
-            </AppWrapper>
+            <div className="relative flex min-h-dvh flex-col">
+              <Header />
+              <main className="flex-1">{children}</main>
+              <Footer />
+            </div>
+            <WhatsAppButton />
+            <Toaster />
           </ThemeProvider>
         </LanguageProvider>
       </body>

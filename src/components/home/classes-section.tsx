@@ -59,9 +59,11 @@ const classesData: ClassData = {
     },
     {
       grade: 'revision-essay',
-      title: 'Rapid Essay Revision',
+      title: 'Rapid Essay Revision | Grade 10/11',
       icon: Edit,
       colorClasses: 'bg-accent text-accent-foreground',
+      description: 'Start your self essay practice here. Learn step by step and get better marks in third term test and O/L exam.',
+      details: ['2 hrs/ Week', 'Online'],
     },
   ],
   si: [
@@ -99,9 +101,11 @@ const classesData: ClassData = {
     },
     {
       grade: 'revision-essay',
-      title: 'වේගවත් රචනා පුනරීක්ෂණය',
+      title: 'වේගවත් රචනා පුනරීක්ෂණය | 10/11 ශ්‍රේණිය',
       icon: Edit,
       colorClasses: 'bg-accent text-accent-foreground',
+      description: 'ඔබේ ස්වයං රචනා පුහුණුව මෙතැනින් ආරම්භ කරන්න. පියවරෙන් පියවර ඉගෙන ගෙන තෙවන වාර පරීක්ෂණයෙන් සහ සා/පෙළ විභාගයෙන් වඩා හොඳ ලකුණු ලබා ගන්න.',
+      details: ['සතියට පැය 2', 'ඔන්ලයින්'],
     },
   ],
 };

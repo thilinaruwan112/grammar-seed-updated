@@ -45,15 +45,17 @@ const classesData: ClassData = {
       grade: 11,
       title: 'Grade 11',
       icon: BookOpen,
-      colorClasses: 'bg-primary text-primary-foreground',
+      colorClasses: 'bg-primary text.primary-foreground',
       description: 'Start your Theory lessons here. Learn step by step and get better marks in your term test exams.',
       details: ['4 hrs/ Week', 'Online'],
     },
     {
       grade: 'revision-english',
-      title: 'Rapid English Revision',
+      title: 'Rapid English Revision | Grade 10/11',
       icon: Edit,
       colorClasses: 'bg-accent text-accent-foreground',
+      description: 'Start your Rapid Revision here. Learn step by step and get better marks in your third term test and O/L exam.',
+      details: ['3 hrs/ Week', 'Online'],
     },
     {
       grade: 'revision-essay',
@@ -89,9 +91,11 @@ const classesData: ClassData = {
     },
     {
       grade: 'revision-english',
-      title: 'වේගවත් ඉංග්‍රීසි පුනරීක්ෂණය',
+      title: 'වේගවත් ඉංග්‍රීසි පුනරීක්ෂණය | 10/11 ශ්‍රේණිය',
       icon: Edit,
       colorClasses: 'bg-accent text-accent-foreground',
+      description: 'ඔබේ වේගවත් පුනරීක්ෂණය මෙතැනින් ආරම්භ කරන්න. පියවරෙන් පියවර ඉගෙන ගෙන ඔබගේ තෙවන වාර පරීක්ෂණයෙන් සහ සා/පෙළ විභාගයෙන් වඩා හොඳ ලකුණු ලබා ගන්න.',
+      details: ['සතියට පැය 3', 'ඔන්ලයින්'],
     },
     {
       grade: 'revision-essay',

@@ -89,7 +89,7 @@ export default function LocalLearningSection() {
           
           <motion.div variants={itemVariants} className="flex justify-center">
             <Image
-              src="https://placehold.co/600x400.png"
+              src="https://content-provider.payshia.com/grammar-seed/about-mini-optimized.webp"
               alt="Students in a classroom"
               width={600}
               height={400}

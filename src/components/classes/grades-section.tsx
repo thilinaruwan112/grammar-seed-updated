@@ -4,8 +4,9 @@ import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { ArrowRight, BookOpen, Edit } from 'lucide-react';
+import { ArrowRight, BookOpen, Edit, Clock, Monitor } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { classDetailsData } from '@/lib/class-data';
 
 const gradesData = [
   {
@@ -70,7 +71,8 @@ export default function GradesSection() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {gradesData.map((item) => {
-             const Icon = item.icon
+             const Icon = item.icon;
+             const details = classDetailsData[item.grade];
              return (
             <motion.div key={item.title} variants={itemVariants}>
               <Card className="flex flex-col h-full shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-lg overflow-hidden bg-card">
@@ -78,13 +80,23 @@ export default function GradesSection() {
                    <div className={cn("w-16 h-16 rounded-full flex items-center justify-center shrink-0 mb-6", item.colorClasses)}>
                       <Icon className="w-8 h-8" />
                     </div>
-                  <h3 className="font-headline text-2xl font-bold text-foreground mb-4">
-                    {item.title}
+                  <h3 className="font-headline text-2xl font-bold text-foreground mb-2">
+                    {details.title}
                   </h3>
+                  <p className="text-muted-foreground mb-4 flex-grow text-sm">{details.description.split('.')[0] + '.'}</p>
                   
+                  {details.schedule && (
+                    <div className="flex justify-center gap-4 mb-6 text-muted-foreground text-sm">
+                      <div className="flex items-center gap-2">
+                        <Clock className="h-4 w-4" />
+                        <span>{details.schedule.split('\n')[0]}</span>
+                      </div>
+                    </div>
+                  )}
+
                   <Button asChild className='mt-auto w-full' variant={item.grade.toString().includes('revision') ? 'accent' : 'default'}>
                     <Link href={`/classes/${item.grade}`}>
-                      Unlock Class <ArrowRight className="ml-2 h-4 w-4" />
+                      View Details <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                   </Button>
                 </CardContent>

@@ -8,6 +8,8 @@ import Footer from '@/components/footer';
 import { ThemeProvider } from '@/components/theme-provider';
 import { LanguageProvider } from '@/components/language-provider';
 import WhatsAppButton from '@/components/whatsapp-button';
+import { ProgressBar } from '@/components/progress-bar';
+import { Suspense } from 'react';
 
 export const metadata: Metadata = {
   title: {
@@ -81,6 +83,9 @@ export default function RootLayout({
             </div>
             <WhatsAppButton />
             <Toaster />
+            <Suspense fallback={null}>
+                <ProgressBar />
+            </Suspense>
           </ThemeProvider>
         </LanguageProvider>
       </body>

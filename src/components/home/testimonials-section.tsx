@@ -34,10 +34,12 @@ const translations = {
   en: {
     title: 'What Students Say',
     buttonText: 'Read All Reviews',
+    addReviewButtonText: 'Add Your Review',
   },
   si: {
     title: 'සිසුන් පවසන දේ',
     buttonText: 'සියලුම සමාලෝචන කියවන්න',
+    addReviewButtonText: 'ඔබගේ සමාලෝචනය එක් කරන්න',
   },
 };
 
@@ -113,9 +115,12 @@ export default function TestimonialsSection() {
                         </CarouselContent>
                     </Carousel>
                 </div>
-                <div className="mt-12">
+                <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
                     <Button asChild size="lg" variant="secondary" className="rounded-full">
-                        <Link href="#">{t.buttonText}</Link>
+                        <Link href="/reviews">{t.buttonText}</Link>
+                    </Button>
+                    <Button asChild size="lg" variant="outline" className="rounded-full">
+                        <Link href="/reviews/add">{t.addReviewButtonText}</Link>
                     </Button>
                 </div>
             </div>

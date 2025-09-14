@@ -157,4 +157,23 @@ export const classDetailsData: { [key: string]: any } = {
     recordings: 'Available',
     studyPack: 'Available',
   },
+  'revision-english': {
+    grade: '10/11',
+    title: 'Rapid English Revision',
+    fullTitle: 'RAPID ENGLISH REVISION',
+    description: 'Master 90+ marks within 6 months. In just 6 months, we cover the full Grade 10 and 11 English syllabus with a clear focus on exam success. Our program includes all grammar lessons with easy-to-follow tutorials, 70 full English paper practices, 70 essay practices, and guided chart writings. We also train students to master Test 6 and Test 8 questions. With our step-by-step revision and proven methods, our ultimate goal is to help every student achieve 90+ marks in the Third Term Test and confidently face the O/L exam.',
+    monthlyPlan: [
+      { month: 'August', details: ['Test 6 & Test 8 theory with guided practice', 'Practice Test 6 & Test 8 questions', 'Full English paper practice sessions'] },
+      { month: 'September', details: ['Active & Passive Voice theory explained', 'Practice on Active & Passive Voice questions', 'Full English paper practice sessions'] },
+      { month: 'October', details: ['Chart Descriptions writing theory', 'Step-by-step practice of chart writing questions', 'Full English paper practice sessions'] },
+      { month: 'November', details: ['Reported Speech theory explained', 'Practice on Reported Speech questions', 'Full English paper practice sessions'] },
+      { month: 'December', details: ['Essay Writing theory with step-by-step guidance', 'Practice 70+ essay questions for exam mastery', 'Full English paper practice sessions'] },
+      { month: 'January', details: ['Full paper practice sessions', 'Practice with guess papers for final O/L preparation'] },
+    ],
+    schedule: 'Thursday 7.00 pm – 10.00 pm\nRepeat (live)\nSunday 7.00 pm – 10.00 pm',
+    format: 'Zoom and YouTube',
+    fee: 'LKR 1300 Per Month',
+    recordings: 'Available',
+    studyPack: 'Available',
+  },
 };

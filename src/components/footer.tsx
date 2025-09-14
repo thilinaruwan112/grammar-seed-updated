@@ -4,9 +4,9 @@ import Link from 'next/link';
 import { Facebook, Youtube, Instagram, Phone, Mail, FileText, MapPin } from 'lucide-react';
 
 const socialLinks = [
-  { icon: Facebook, href: '#', label: 'Facebook' },
-  { icon: Youtube, href: '#', label: 'YouTube' },
-  { icon: Instagram, href: '#', label: 'Instagram' },
+  { icon: Facebook, href: 'https://www.facebook.com/', label: 'Facebook' },
+  { icon: Youtube, href: 'https://www.youtube.com/', label: 'YouTube' },
+  { icon: Instagram, href: 'https://www.instagram.com/', label: 'Instagram' },
 ];
 
 const quickLinks = [

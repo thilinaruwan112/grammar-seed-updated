@@ -28,7 +28,7 @@ export default function SheetsPage() {
                 <p className="text-sm text-muted-foreground">{sheet.format} &bull; {sheet.size}</p>
               </div>
               <Button asChild variant="outline">
-                <Link href="#" download>
+                <Link href="/sheets" download>
                   <Download className="mr-2 h-4 w-4" />
                   Download
                 </Link>

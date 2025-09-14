@@ -39,7 +39,7 @@ export default function CtaSection() {
             size="lg"
             variant="secondary"
           >
-            <Link href="#">View Class Details</Link>
+            <Link href="/classes">View Class Details</Link>
           </Button>
           <Button
             asChild
@@ -47,7 +47,7 @@ export default function CtaSection() {
             variant="outline"
             className="border-white bg-transparent text-white hover:bg-white/10 hover:text-white"
           >
-            <Link href="#">Contact Us</Link>
+            <Link href="/contact">Contact Us</Link>
           </Button>
         </div>
       </div>

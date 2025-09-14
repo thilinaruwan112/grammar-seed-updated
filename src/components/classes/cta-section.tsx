@@ -38,14 +38,14 @@ export default function CtaSection() {
             size="lg"
             variant="secondary"
           >
-            <Link href="#">Book a Trial</Link>
+            <Link href="/register">Book a Trial</Link>
           </Button>
           <Button
             asChild
             size="lg"
             className="bg-accent text-accent-foreground hover:bg-accent/90"
           >
-            <Link href="#">Contact Teacher</Link>
+            <Link href="/contact">Contact Teacher</Link>
           </Button>
         </div>
       </div>

@@ -168,7 +168,7 @@ export default function AllTestimonialsSection() {
                   </div>
                   <StarRating rating={testimonial.rating} />
                   <p className="text-muted-foreground my-4 flex-grow">{testimonial.quote}</p>
-                  <Link href="#" className="text-sm font-semibold text-primary hover:underline mt-auto">
+                  <Link href="/reviews" className="text-sm font-semibold text-primary hover:underline mt-auto">
                     Read more
                   </Link>
                 </CardContent>

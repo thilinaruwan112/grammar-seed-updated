@@ -19,9 +19,9 @@ const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
 
 
 const socialLinks = [
-  { icon: Facebook, href: '#', label: 'Facebook', bgColor: 'bg-blue-600' },
+  { icon: Facebook, href: 'https://www.facebook.com/', label: 'Facebook', bgColor: 'bg-blue-600' },
   { icon: WhatsAppIcon, href: 'https://wa.me/94707879292', label: 'WhatsApp', bgColor: 'bg-green-500' },
-  { icon: Youtube, href: '#', label: 'YouTube', bgColor: 'bg-red-600' },
+  { icon: Youtube, href: 'https://www.youtube.com/', label: 'YouTube', bgColor: 'bg-red-600' },
 ];
 
 const sectionVariants = {

@@ -53,7 +53,7 @@ const translations = {
     classes: 'පන්ති',
     classLinks: [
         { href: '/classes/grade-9', label: '9 ශ්‍රේණිය' },
-        { href: '/classes/grade-10', label: '10 ශ්‍රేණිය' },
+        { href: '/classes/grade-10', label: '10 ශ්‍රේණිය' },
         { href: '/classes/grade-11', label: '11 ශ්‍රේණිය' },
         { href: '/classes/revision-english', label: 'ඉංග්‍රීසි පුනරීක්ෂණ' },
         { href: '/classes/revision-essay', label: 'රචනා පුනරීක්ෂණ' },

@@ -50,7 +50,7 @@ export default function StickyClassDetails({ details }: StickyClassDetailsProps)
       <CardContent className="space-y-6">
         {fee && (
           <div className="text-center pb-4 border-b">
-            <p className="text-3xl font-bold text-primary">{fee.split(' ')[0]}</p>
+            <p className="text-3xl font-bold text-primary">{fee.split(' ').slice(0, 2).join(' ')}</p>
             <p className="text-muted-foreground">Per Month</p>
           </div>
         )}

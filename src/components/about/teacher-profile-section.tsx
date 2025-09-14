@@ -4,6 +4,7 @@
 import Image from 'next/image';
 import { Star, GraduationCap, Briefcase } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../language-provider';
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 50 },
@@ -17,7 +18,38 @@ const sectionVariants = {
   }
 };
 
+const translations = {
+  en: {
+    title: 'About your teacher',
+    name: 'Mr. Shehan Jayawardhana',
+    role: 'Founder & Lead Lecturer',
+    p1: 'I specialize in teaching school English syllabuses for Grades 9 – 11, with a strong focus on grammar and writing. My goal is to help students build premium-level writing skills—especially in essay writing—by developing clear thinking and confident expression.',
+    p2: 'At Grammar Seed College, we believe that strong grammar leads to strong minds. Every lesson is designed to guide students toward top exam results in English.',
+    qualificationsTitle: 'Experience & Qualifications',
+    exp1: '2 years of experience in online education',
+    exp2: 'English Diploma holder, University of Sabaragamuwa, Sri Lanka',
+    stat1: '500+ Students Taught',
+    stat2: '95% Success Rate',
+  },
+  si: {
+    title: 'ඔබේ ගුරුවරයා ගැන',
+    name: 'ශිහාන් ජයවර්ධන මහතා',
+    role: 'ආරම්භක සහ ප්‍රධාන කථිකාචාර්ය',
+    p1: 'මම 9 – 11 ශ්‍රේණි සඳහා පාසල් ඉංග්‍රීසි විෂය නිර්දේශ ඉගැන්වීමට විශේෂත්වයක් දක්වමි, ව්‍යාකරණ සහ ලිවීම කෙරෙහි දැඩි අවධානයක් යොමු කරමි. මගේ ඉලක්කය වන්නේ පැහැදිලි චින්තනය සහ විශ්වාසනීය ප්‍රකාශනය වර්ධනය කිරීම මගින් සිසුන්ට ඉහළ මට්ටමේ ලිවීමේ කුසලතා—විශේෂයෙන් රචනා ලිවීමේදී—ගොඩනැගීමට උපකාර කිරීමයි.',
+    p2: 'ග්‍රැමර් සීඩ් විද්‍යාලයේදී, අපි විශ්වාස කරන්නේ ශක්තිමත් ව්‍යාකරණ ශක්තිමත් මනසකට මඟ පෙන්වන බවයි. සෑම පාඩමක්ම ඉංග්‍රීසි විභාග වලින් ඉහළම ප්‍රතිඵල ලබා ගැනීම සඳහා සිසුන්ට මග පෙන්වීම සඳහා නිර්මාණය කර ඇත.',
+    qualificationsTitle: 'පළපුරුද්ද සහ සුදුසුකම්',
+    exp1: 'මාර්ගගත අධ්‍යාපනයේ වසර 2ක පළපුරුද්ද',
+    exp2: 'ඉංග්‍රීසි ඩිප්ලෝමාධාරී, සබරගමුව විශ්වවිද්‍යාලය, ශ්‍රී ලංකාව',
+    stat1: '500+ සිසුන් උගන්වා ඇත',
+    stat2: '95% සාර්ථකත්ව අනුපාතය',
+  }
+};
+
+
 export default function TeacherProfileSection() {
+  const { language } = useLanguage();
+  const t = translations[language] || translations.en;
+
   return (
     <motion.section 
       className="py-24 bg-background"
@@ -29,7 +61,7 @@ export default function TeacherProfileSection() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold font-headline text-foreground">
-            About your teacher
+            {t.title}
           </h2>
           <div className="mt-4 w-24 h-1 bg-secondary-foreground mx-auto" />
         </div>
@@ -39,7 +71,7 @@ export default function TeacherProfileSection() {
             <div className="relative">
               <Image
                 src="https://content-provider.payshia.com/grammar-seed/square-optimized.webp"
-                alt="Mr. Shehan Jayawardhana"
+                alt={t.name}
                 width={400}
                 height={400}
                 className="rounded-full object-cover shadow-2xl"
@@ -51,37 +83,37 @@ export default function TeacherProfileSection() {
           
           <div className="text-center md:text-left">
             <h3 className="text-3xl font-bold font-headline text-foreground mb-2">
-              Mr. Shehan Jayawardhana
+              {t.name}
             </h3>
             <div className="inline-block bg-secondary text-secondary-foreground text-sm font-semibold px-4 py-2 rounded-full mb-6">
-              Founder & Lead Lecturer
+              {t.role}
             </div>
             
             <p className="text-lg text-muted-foreground mb-4">
-              I specialize in teaching school English syllabuses for Grades 9 – 11, with a strong focus on grammar and writing. My goal is to help students build premium-level writing skills—especially in essay writing—by developing clear thinking and confident expression.
+              {t.p1}
             </p>
             <p className="text-muted-foreground mb-8">
-              At Grammar Seed College, we believe that strong grammar leads to strong minds. Every lesson is designed to guide students toward top exam results in English.
+              {t.p2}
             </p>
             
-            <div className="space-y-4 text-left">
-                <h4 className="text-xl font-bold font-headline text-foreground mb-2">Experience & Qualifications</h4>
-                <div className="flex items-center gap-4 text-foreground">
+            <div className="space-y-4 text-center md:text-left">
+                <h4 className="text-xl font-bold font-headline text-foreground mb-2">{t.qualificationsTitle}</h4>
+                <div className="flex items-center justify-center md:justify-start gap-4 text-foreground">
                     <Briefcase className="h-5 w-5 text-secondary-foreground" />
-                    <span>2 years of experience in online education</span>
+                    <span>{t.exp1}</span>
                 </div>
-                <div className="flex items-center gap-4 text-foreground">
+                <div className="flex items-center justify-center md:justify-start gap-4 text-foreground">
                     <GraduationCap className="h-5 w-5 text-secondary-foreground" />
-                    <span>English Diploma holder, University of Sabaragamuwa, Sri Lanka</span>
+                    <span>{t.exp2}</span>
                 </div>
-                 <div className="flex flex-col sm:flex-row items-start sm:items-center justify-start gap-6 text-foreground mt-4">
+                 <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-6 text-foreground mt-4">
                     <div className="flex items-center gap-2 font-medium">
                         <Star className="h-5 w-5 text-secondary-foreground" fill="currentColor" />
-                        <span>500+ Students Taught</span>
+                        <span>{t.stat1}</span>
                     </div>
                     <div className="flex items-center gap-2 font-medium">
                         <GraduationCap className="h-5 w-5 text-secondary-foreground" />
-                        <span>95% Success Rate</span>
+                        <span>{t.stat2}</span>
                     </div>
                 </div>
             </div>

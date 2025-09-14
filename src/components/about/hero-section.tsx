@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { useLanguage } from '../language-provider';
 
 const sectionVariants = {
   hidden: { opacity: 0 },
@@ -14,7 +15,21 @@ const sectionVariants = {
   }
 };
 
+const translations = {
+  en: {
+    title: "Meet Your English Guide",
+    description: "Passionate about helping every Sri Lankan student master English.",
+  },
+  si: {
+    title: "ඔබේ ඉංග්‍රීසි මාර්ගෝපදේශකයා හමුවන්න",
+    description: "සෑම ශ්‍රී ලාංකික සිසුවෙකුටම ඉංග්‍රීසි ප්‍රගුණ කිරීමට උපකාර කිරීමට දැඩි කැමැත්තෙන්.",
+  },
+};
+
 export default function HeroSection() {
+  const { language } = useLanguage();
+  const t = translations[language] || translations.en;
+  
   return (
     <motion.section 
       className="relative h-[60vh] w-full flex items-center justify-center"
@@ -33,10 +48,10 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-black/50" />
       <div className="relative z-10 flex flex-col items-center justify-center space-y-4 px-4 text-center text-white">
         <h1 className="font-headline text-5xl font-bold tracking-tight md:text-7xl">
-          Meet Your English Guide
+          {t.title}
         </h1>
         <p className="max-w-2xl text-lg text-neutral-200 md:text-xl">
-          Passionate about helping every Sri Lankan student master English.
+          {t.description}
         </p>
       </div>
     </motion.section>

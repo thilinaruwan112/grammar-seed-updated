@@ -34,13 +34,11 @@ const sectionVariants = {
 export default function LearningPlan({ plans }: LearningPlanProps) {
   return (
     <motion.section
-      className="py-16 bg-muted"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
       variants={sectionVariants}
     >
-      <div className="container mx-auto px-4 max-w-3xl">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold font-headline text-foreground">
             Syllabus Coverage Plan
@@ -64,7 +62,6 @@ export default function LearningPlan({ plans }: LearningPlanProps) {
             </AccordionItem>
           ))}
         </Accordion>
-      </div>
     </motion.section>
   );
 }

@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
 import { classDetailsData } from '@/lib/class-data';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const siteUrl = 'https://www.your-domain.com'; // Replace with your actual domain
+  const siteUrl = 'https://grammarseed.lk'; // Replace with your actual domain
 
   // Get dynamic class routes
   const classRoutes = Object.keys(classDetailsData.en).map((grade) => ({

@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Menu, FileText, UserPlus } from 'lucide-react';
+import { Menu, FileText, UserPlus, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { useState } from 'react';
@@ -10,30 +10,35 @@ import { cn } from '@/lib/utils';
 import { ThemeToggle } from './theme-toggle';
 import { useLanguage } from './language-provider';
 import { LanguageToggle } from './language-switcher';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
+import { classDetailsData } from '@/lib/class-data';
+
 
 const navLinksData = {
-  en: [
-    { href: '/', label: 'Home' },
-    { href: '/about', label: 'About' },
-    { href: '/classes', label: 'Classes' },
-    { href: '/reviews', label: 'Reviews' },
-    { href: '/contact', label: 'Contact' },
-  ],
-  si: [
-    { href: '/', label: 'මුල් පිටුව' },
-    { href: '/about', label: 'පිළිබඳව' },
-    { href: '/classes', label: 'පන්ති' },
-    { href: '/reviews', label: 'සමාලෝචන' },
-    { href: '/contact', label: 'සම්බන්ධ වන්න' },
-  ],
-};
-
-const translations = {
   en: {
+    links: [
+      { href: '/', label: 'Home' },
+      { href: '/about', label: 'About' },
+      { href: '/classes', label: 'Classes' },
+      { href: '/reviews', label: 'Reviews' },
+      { href: '/contact', label: 'Contact' },
+    ],
     register: 'Register',
   },
   si: {
+    links: [
+      { href: '/', label: 'මුල් පිටුව' },
+      { href: '/about', label: 'පිළිබඳව' },
+      { href: '/classes', label: 'පන්ති' },
+      { href: '/reviews', label: 'සමාලෝචන' },
+      { href: '/contact', label: 'සම්බන්ධ වන්න' },
+    ],
     register: 'ලියාපදිංචි වන්න',
   },
 };
@@ -53,12 +58,81 @@ const mobileNavItemVariants = {
   visible: { opacity: 1, x: 0 },
 };
 
+function NavLink({ href, label, children }: { href: string, label: string, children?: React.ReactNode }) {
+  const pathname = usePathname();
+  const isActive = pathname === href || (href !== '/' && pathname.startsWith(href));
+
+  return (
+    <Link
+      href={href}
+      className={cn(
+        'relative transition-colors hover:text-primary',
+        isActive ? 'text-primary font-semibold' : 'text-foreground/60'
+      )}
+    >
+      <span className="flex items-center gap-1">
+        {label}
+        {children}
+      </span>
+      {isActive && (
+        <motion.div
+          className="absolute bottom-[-4px] left-0 right-0 h-0.5 bg-primary"
+          layoutId="underline"
+          initial={false}
+        />
+      )}
+    </Link>
+  );
+}
+
+
+function ClassesDropdown({ children }: { children: React.ReactNode }) {
+  const { language } = useLanguage();
+  const currentClassData = classDetailsData[language] || classDetailsData.en;
+  const classLinks = Object.keys(currentClassData).map(key => ({
+    href: `/classes/${key}`,
+    label: currentClassData[key].title
+  }));
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
+      <DropdownMenuTrigger asChild>
+        <button className="flex items-center gap-1 outline-none">
+          {children}
+          <ChevronDown className={cn('h-4 w-4 transition-transform', isOpen && 'rotate-180')} />
+        </button>
+      </DropdownMenuTrigger>
+      <AnimatePresence>
+        {isOpen && (
+          <DropdownMenuContent 
+            asChild 
+            forceMount
+            className="w-56"
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 10 }}
+              transition={{ duration: 0.2, ease: 'easeOut' }}
+            >
+              {classLinks.map(({ href, label }) => (
+                <DropdownMenuItem key={href} asChild>
+                  <Link href={href}>{label}</Link>
+                </DropdownMenuItem>
+              ))}
+            </motion.div>
+          </DropdownMenuContent>
+        )}
+      </AnimatePresence>
+    </DropdownMenu>
+  );
+}
+
 export default function Header() {
   const [open, setOpen] = useState(false);
-  const pathname = usePathname();
   const { language } = useLanguage();
-  const navLinks = navLinksData[language] || navLinksData.en;
-  const t = translations[language] || translations.en;
+  const { links: navLinks, register: tRegister } = navLinksData[language] || navLinksData.en;
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-sm">
@@ -71,31 +145,22 @@ export default function Header() {
         </div>
 
         <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
-          {navLinks.map(({ href, label }) => (
-            <Link
-              key={label}
-              href={href}
-              className={cn(
-                'relative transition-colors hover:text-primary',
-                pathname === href ? 'text-primary font-semibold' : 'text-foreground/60'
-              )}
-            >
-              {label}
-              {pathname === href && (
-                <motion.div
-                  className="absolute bottom-[-4px] left-0 right-0 h-0.5 bg-primary"
-                  layoutId="underline"
-                  initial={false}
-                />
-              )}
-            </Link>
-          ))}
+          {navLinks.map(({ href, label }) => {
+            if (href === '/classes') {
+              return (
+                <ClassesDropdown key={label}>
+                  <NavLink href={href} label={label} />
+                </ClassesDropdown>
+              )
+            }
+            return <NavLink key={label} href={href} label={label} />
+          })}
         </nav>
 
         <div className="flex-1 flex items-center justify-end space-x-2">
           <div className="hidden md:block">
             <Button asChild>
-              <Link href="/register">{t.register}</Link>
+              <Link href="/register">{tRegister}</Link>
             </Button>
           </div>
           <LanguageToggle />
@@ -129,13 +194,13 @@ export default function Header() {
                     variants={mobileNavContainerVariants}
                   >
                     {navLinks.map(({ href, label }) => (
-                      <motion.div key={label} variants={mobileNavItemVariants}>
+                       <motion.div key={label} variants={mobileNavItemVariants}>
                         <Link
                           href={href}
                           onClick={() => setOpen(false)}
                           className={cn(
                             'block rounded-md px-4 py-3 text-lg font-medium transition-colors',
-                            pathname === href
+                            usePathname() === href
                               ? 'bg-primary text-primary-foreground'
                               : 'text-foreground hover:bg-muted'
                           )}
@@ -150,7 +215,7 @@ export default function Header() {
                   <Button asChild className="w-full">
                     <Link href="/register" onClick={() => setOpen(false)}>
                       <UserPlus className="mr-2 h-4 w-4" />
-                      {t.register}
+                      {tRegister}
                     </Link>
                   </Button>
                 </div>

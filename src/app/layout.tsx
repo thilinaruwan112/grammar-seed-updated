@@ -7,6 +7,7 @@ import Footer from '@/components/footer';
 import { ThemeProvider } from '@/components/theme-provider';
 import AppWrapper from '@/components/app-wrapper';
 import { LanguageProvider } from '@/components/language-provider';
+import WhatsAppButton from '@/components/whatsapp-button';
 
 export const metadata: Metadata = {
   title: 'Grammar Seed',
@@ -42,6 +43,7 @@ export default function RootLayout({
                 <main className="flex-1">{children}</main>
                 <Footer />
               </div>
+              <WhatsAppButton />
               <Toaster />
             </AppWrapper>
           </ThemeProvider>

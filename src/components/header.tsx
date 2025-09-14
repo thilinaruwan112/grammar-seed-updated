@@ -48,7 +48,7 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background">
-      <div className="container mx-auto flex h-16 items-center">
+      <div className="container mx-auto flex h-16 items-center px-4">
         <div className="flex-1 flex items-center">
           <Link href="/" className="flex items-center space-x-2">
             <FileText className="h-6 w-6 text-primary" />

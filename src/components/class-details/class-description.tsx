@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useLanguage } from '../language-provider';
 
 type ClassDescriptionProps = {
   description: string;
@@ -18,10 +19,22 @@ const sectionVariants = {
   },
 };
 
+const translations = {
+  en: {
+    title: 'About This Class',
+  },
+  si: {
+    title: 'මෙම පන්තිය ගැන',
+  }
+}
+
 export default function ClassDescription({ description }: ClassDescriptionProps) {
+  const { language } = useLanguage();
+  const t = translations[language] || translations.en;
+  
   return (
     <motion.section
-      className="mb-12 text-center"
+      className="mb-12"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
@@ -29,10 +42,10 @@ export default function ClassDescription({ description }: ClassDescriptionProps)
     >
         <div className="text-center mb-4">
           <h2 className="text-4xl font-bold font-headline text-foreground">
-            About This Class
+            {t.title}
           </h2>
         </div>
-        <p className="max-w-3xl mx-auto text-lg text-muted-foreground">
+        <p className="max-w-3xl mx-auto text-lg text-muted-foreground text-center">
             {description}
         </p>
     </motion.section>

@@ -3,9 +3,9 @@
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Clock, Monitor, Video, Copy, Tag, CalendarDays } from 'lucide-react';
+import { Clock, Monitor, Video, Copy } from 'lucide-react';
 import Link from 'next/link';
+import { useLanguage } from '../language-provider';
 
 type DetailItemProps = {
   icon: React.ElementType;
@@ -36,7 +36,28 @@ type StickyClassDetailsProps = {
   };
 };
 
+const translations = {
+  en: {
+    schedule: 'Schedule',
+    mode: 'Mode',
+    recordings: 'Recordings',
+    studyPack: 'Monthly Study Pack',
+    enrollNow: 'Enroll Now',
+  },
+  si: {
+    schedule: 'කාලසටහන',
+    mode: 'ක්‍රමය',
+    recordings: 'පටිගත කිරීම්',
+    studyPack: 'මාසික අධ්‍යයන කට්ටලය',
+    enrollNow: 'ලියාපදිංචි වන්න',
+  }
+};
+
+
 export default function StickyClassDetails({ details }: StickyClassDetailsProps) {
+  const { language } = useLanguage();
+  const t = translations[language] || translations.en;
+
   if (!details) {
     return null;
   }
@@ -56,13 +77,13 @@ export default function StickyClassDetails({ details }: StickyClassDetailsProps)
           </div>
         )}
         <div className="space-y-4">
-          {schedule && <DetailItem icon={Clock} label="Schedule" value={schedule} />}
-          {format && <DetailItem icon={Monitor} label="Mode" value={format} />}
-          {recordings && <DetailItem icon={Video} label="Recordings" value={recordings} />}
-          {studyPack && <DetailItem icon={Copy} label="Monthly Study Pack" value={studyPack} />}
+          {schedule && <DetailItem icon={Clock} label={t.schedule} value={schedule} />}
+          {format && <DetailItem icon={Monitor} label={t.mode} value={format} />}
+          {recordings && <DetailItem icon={Video} label={t.recordings} value={recordings} />}
+          {studyPack && <DetailItem icon={Copy} label={t.studyPack} value={studyPack} />}
         </div>
         <Button asChild size="lg" className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
-          <Link href="/register">Enroll Now</Link>
+          <Link href="/register">{t.enrollNow}</Link>
         </Button>
       </CardContent>
     </Card>

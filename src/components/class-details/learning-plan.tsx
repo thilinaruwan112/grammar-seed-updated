@@ -8,6 +8,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
+import { useLanguage } from '../language-provider';
 
 type LearningPlan = {
     term: string;
@@ -31,7 +32,20 @@ const sectionVariants = {
   },
 };
 
+const translations = {
+    en: {
+        title: 'Syllabus Coverage Plan',
+        description: 'Our comprehensive syllabus is structured across three terms to ensure a complete understanding of the curriculum and thorough preparation for exams.',
+    },
+    si: {
+        title: 'විෂය නිර්දේශ ආවරණ සැලැස්ම',
+        description: 'අපගේ විස්තීරණ විෂය නිර්දේශය, විෂය මාලාව පිළිබඳ පූර්ණ අවබෝධයක් සහ විභාග සඳහා საფუძვლიක සූදානමක් සහතික කිරීම සඳහා වාර තුනක් පුරා ව්‍යුහගත කර ඇත.',
+    }
+}
+
 export default function LearningPlan({ plans }: LearningPlanProps) {
+  const { language } = useLanguage();
+  const t = translations[language] || translations.en;
   const defaultOpenItems = plans.map((_, index) => `item-${index}`);
   
   return (
@@ -43,10 +57,10 @@ export default function LearningPlan({ plans }: LearningPlanProps) {
     >
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold font-headline text-foreground">
-            Syllabus Coverage Plan
+            {t.title}
           </h2>
           <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
-            Our comprehensive syllabus is structured across three terms to ensure a complete understanding of the curriculum and thorough preparation for exams.
+            {t.description}
           </p>
         </div>
 

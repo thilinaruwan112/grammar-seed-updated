@@ -1,3 +1,4 @@
+
 'use client';
 
 import Link from 'next/link';
@@ -97,34 +98,41 @@ function ClassesDropdown({ children }: { children: React.ReactNode }) {
 
   return (
     <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
-      <DropdownMenuTrigger asChild>
-        <button className="flex items-center gap-1 outline-none">
-          {children}
-          <ChevronDown className={cn('h-4 w-4 transition-transform', isOpen && 'rotate-180')} />
-        </button>
+      <DropdownMenuTrigger
+        asChild
+        onMouseEnter={() => setIsOpen(true)}
+      >
+        <div onMouseLeave={() => setIsOpen(false)}>
+          <button className="flex items-center gap-1 outline-none">
+            {children}
+            <ChevronDown className={cn('h-4 w-4 transition-transform', isOpen && 'rotate-180')} />
+          </button>
+          <AnimatePresence>
+            {isOpen && (
+              <DropdownMenuContent
+                asChild
+                forceMount
+                className="w-56"
+                onMouseEnter={() => setIsOpen(true)}
+                onMouseLeave={() => setIsOpen(false)}
+              >
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 10 }}
+                  transition={{ duration: 0.2, ease: 'easeOut' }}
+                >
+                  {classLinks.map(({ href, label }) => (
+                    <DropdownMenuItem key={href} asChild>
+                      <Link href={href}>{label}</Link>
+                    </DropdownMenuItem>
+                  ))}
+                </motion.div>
+              </DropdownMenuContent>
+            )}
+          </AnimatePresence>
+        </div>
       </DropdownMenuTrigger>
-      <AnimatePresence>
-        {isOpen && (
-          <DropdownMenuContent 
-            asChild 
-            forceMount
-            className="w-56"
-          >
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 10 }}
-              transition={{ duration: 0.2, ease: 'easeOut' }}
-            >
-              {classLinks.map(({ href, label }) => (
-                <DropdownMenuItem key={href} asChild>
-                  <Link href={href}>{label}</Link>
-                </DropdownMenuItem>
-              ))}
-            </motion.div>
-          </DropdownMenuContent>
-        )}
-      </AnimatePresence>
     </DropdownMenu>
   );
 }

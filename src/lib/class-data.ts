@@ -176,4 +176,14 @@ export const classDetailsData: { [key: string]: any } = {
     recordings: 'Available',
     studyPack: 'Available',
   },
+  'revision-essay': {
+    grade: '10/11',
+    title: 'Rapid Essay Revision',
+    fullTitle: 'RAPID ESSAY REVISION',
+    description: 'Start your self study essay practice here.. In this class, we teach the perfect essay writing format and guide you to write answers within the 200-word range. You will learn how to start an essay effectively, develop strong content paragraphs, and create a proper, impactful ending. To ensure exam readiness, we practice 50 essay writings tailored for your Third Term Exam. Try this class now and master essay writing with confidence!',
+    schedule: 'Tuesday 8.30 pm – 10.30 pm',
+    format: 'Zoom and YouTube',
+    fee: 'LKR 1300 Per Month',
+    recordings: 'Available',
+  },
 };

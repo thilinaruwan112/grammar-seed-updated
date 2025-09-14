@@ -95,17 +95,17 @@ export default function AboutSection() {
               {t.p2}
             </p>
             
-            <div className="space-y-4 text-left">
+            <div className="space-y-4 text-center md:text-left">
                 <h4 className="text-xl font-bold font-headline text-foreground mb-2">{t.qualificationsTitle}</h4>
-                <div className="flex items-center gap-4 text-foreground">
+                <div className="flex items-center justify-center md:justify-start gap-4 text-foreground">
                     <Briefcase className="h-5 w-5 text-secondary-foreground" />
                     <span>{t.exp1}</span>
                 </div>
-                <div className="flex items-center gap-4 text-foreground">
+                <div className="flex items-center justify-center md:justify-start gap-4 text-foreground">
                     <GraduationCap className="h-5 w-5 text-secondary-foreground" />
                     <span>{t.exp2}</span>
                 </div>
-                 <div className="flex flex-col sm:flex-row items-start sm:items-center justify-start gap-6 text-foreground mt-4">
+                 <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-6 text-foreground mt-4">
                     <div className="flex items-center gap-2 font-medium">
                         <Star className="h-5 w-5 text-secondary-foreground" fill="currentColor" />
                         <span>{t.stat1}</span>

@@ -135,7 +135,7 @@ function ClassesDropdownMenu() {
                 <DropdownMenuLabel className="font-semibold text-foreground">Theory Classes</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 {theoryClasses.map(({ href, label }) => (
-                    <DropdownMenuItem key={href} asChild>
+                    <DropdownMenuItem key={href} asChild className="cursor-pointer">
                     <Link href={href} className="text-muted-foreground">{label}</Link>
                     </DropdownMenuItem>
                 ))}
@@ -144,7 +144,7 @@ function ClassesDropdownMenu() {
                 <DropdownMenuLabel className="font-semibold text-foreground">Revision Classes</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 {revisionClasses.map(({ href, label }) => (
-                    <DropdownMenuItem key={href} asChild>
+                    <DropdownMenuItem key={href} asChild className="cursor-pointer">
                     <Link href={href} className="text-muted-foreground">{label}</Link>
                     </DropdownMenuItem>
                 ))}

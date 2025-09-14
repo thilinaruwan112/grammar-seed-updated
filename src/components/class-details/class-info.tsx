@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { BookText, Calendar, Clock, Users, Monitor, FileText, Youtube, Package, IndianRupee } from 'lucide-react';
+import { BookText, Calendar, Clock, Monitor, Youtube, Package, IndianRupee } from 'lucide-react';
 
 type ClassInfoProps = {
   details: {
@@ -29,7 +29,7 @@ export default function ClassInfo({ details }: ClassInfoProps) {
       transition={{ duration: 0.8 }}
     >
       <div className="container mx-auto px-4">
-        <Card className="max-w-4xl mx-auto shadow-lg rounded-2xl bg-muted">
+        <Card className="max-w-4xl mx-auto shadow-lg rounded-2xl bg-muted/50">
           <CardHeader>
             <CardTitle className="text-center text-3xl font-bold font-headline text-foreground">
               {details.fullTitle}

@@ -17,6 +17,9 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
+  DropdownMenuLabel,
+  DropdownMenuGroup,
+  DropdownMenuSeparator,
 } from '@/components/ui/dropdown-menu';
 import { classDetailsData } from '@/lib/class-data';
 
@@ -59,7 +62,7 @@ const mobileNavItemVariants = {
   visible: { opacity: 1, x: 0 },
 };
 
-function NavLink({ href, label, children }: { href: string, label: string, children?: React.ReactNode }) {
+function NavLink({ href, label, children, onMouseEnter, onMouseLeave }: { href: string, label: string, children?: React.ReactNode, onMouseEnter?: () => void, onMouseLeave?: () => void }) {
   const pathname = usePathname();
   const isActive = pathname === href || (href !== '/' && pathname.startsWith(href));
 
@@ -70,6 +73,8 @@ function NavLink({ href, label, children }: { href: string, label: string, child
         'relative transition-colors hover:text-primary',
         isActive ? 'text-primary font-semibold' : 'text-foreground/60'
       )}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
     >
       <span className="flex items-center gap-1">
         {label}
@@ -87,53 +92,62 @@ function NavLink({ href, label, children }: { href: string, label: string, child
 }
 
 
-function ClassesDropdown({ children }: { children: React.ReactNode }) {
+function ClassesDropdown({ children, onMouseEnter, onMouseLeave }: { children: React.ReactNode, onMouseEnter: () => void, onMouseLeave: () => void }) {
   const { language } = useLanguage();
   const currentClassData = classDetailsData[language] || classDetailsData.en;
-  const classLinks = Object.keys(currentClassData).map(key => ({
-    href: `/classes/${key}`,
-    label: currentClassData[key].title
-  }));
-  const [isOpen, setIsOpen] = useState(false);
+  
+  const theoryClasses = Object.keys(currentClassData)
+    .filter(key => key.startsWith('grade-'))
+    .map(key => ({
+      href: `/classes/${key}`,
+      label: currentClassData[key].title
+    }));
+
+  const revisionClasses = Object.keys(currentClassData)
+    .filter(key => key.startsWith('revision-'))
+    .map(key => ({
+      href: `/classes/${key}`,
+      label: currentClassData[key].title
+    }));
 
   return (
-    <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
-      <DropdownMenuTrigger
-        asChild
-        onMouseEnter={() => setIsOpen(true)}
-      >
-        <div onMouseLeave={() => setIsOpen(false)}>
-          <button className="flex items-center gap-1 outline-none">
-            {children}
-            <ChevronDown className={cn('h-4 w-4 transition-transform', isOpen && 'rotate-180')} />
-          </button>
-          <AnimatePresence>
-            {isOpen && (
-              <DropdownMenuContent
-                asChild
-                forceMount
-                className="w-56"
-                onMouseEnter={() => setIsOpen(true)}
-                onMouseLeave={() => setIsOpen(false)}
-              >
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 10 }}
-                  transition={{ duration: 0.2, ease: 'easeOut' }}
-                >
-                  {classLinks.map(({ href, label }) => (
-                    <DropdownMenuItem key={href} asChild>
-                      <Link href={href}>{label}</Link>
-                    </DropdownMenuItem>
-                  ))}
-                </motion.div>
-              </DropdownMenuContent>
-            )}
-          </AnimatePresence>
-        </div>
-      </DropdownMenuTrigger>
-    </DropdownMenu>
+    <div onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+      {children}
+      <AnimatePresence>
+          <DropdownMenuContent
+            asChild
+            forceMount
+            className="w-auto"
+          >
+            <motion.div
+              className="grid grid-cols-2 gap-4 p-4"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 10 }}
+              transition={{ duration: 0.2, ease: 'easeOut' }}
+            >
+              <DropdownMenuGroup>
+                <DropdownMenuLabel className="font-semibold text-foreground">Theory Classes</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                {theoryClasses.map(({ href, label }) => (
+                  <DropdownMenuItem key={href} asChild>
+                    <Link href={href} className="text-muted-foreground">{label}</Link>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuGroup>
+              <DropdownMenuGroup>
+                <DropdownMenuLabel className="font-semibold text-foreground">Revision Classes</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                {revisionClasses.map(({ href, label }) => (
+                  <DropdownMenuItem key={href} asChild>
+                    <Link href={href} className="text-muted-foreground">{label}</Link>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuGroup>
+            </motion.div>
+          </DropdownMenuContent>
+      </AnimatePresence>
+    </div>
   );
 }
 
@@ -141,6 +155,8 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const { language } = useLanguage();
   const { links: navLinks, register: tRegister } = navLinksData[language] || navLinksData.en;
+  const [isClassesMenuOpen, setIsClassesMenuOpen] = useState(false);
+
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-sm">
@@ -152,18 +168,27 @@ export default function Header() {
           </Link>
         </div>
 
-        <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
-          {navLinks.map(({ href, label }) => {
-            if (href === '/classes') {
-              return (
-                <ClassesDropdown key={label}>
-                  <NavLink href={href} label={label} />
-                </ClassesDropdown>
-              )
-            }
-            return <NavLink key={label} href={href} label={label} />
-          })}
-        </nav>
+        <DropdownMenu open={isClassesMenuOpen} onOpenChange={setIsClassesMenuOpen}>
+          <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
+            {navLinks.map(({ href, label }) => {
+              if (href === '/classes') {
+                return (
+                  <DropdownMenuTrigger asChild key={label}>
+                     <ClassesDropdown 
+                        onMouseEnter={() => setIsClassesMenuOpen(true)}
+                        onMouseLeave={() => setIsClassesMenuOpen(false)}
+                     >
+                      <NavLink href={href} label={label}>
+                        <ChevronDown className={cn('h-4 w-4 transition-transform', isClassesMenuOpen && 'rotate-180')} />
+                      </NavLink>
+                    </ClassesDropdown>
+                  </DropdownMenuTrigger>
+                )
+              }
+              return <NavLink key={label} href={href} label={label} />
+            })}
+          </nav>
+        </DropdownMenu>
 
         <div className="flex-1 flex items-center justify-end space-x-2">
           <div className="hidden md:block">

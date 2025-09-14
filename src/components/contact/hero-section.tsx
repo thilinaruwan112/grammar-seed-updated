@@ -26,8 +26,8 @@ const cardVariants = {
 const contactMethods = [
     {
         icon: Phone,
-        title: 'Phone / WhatsApp',
-        details: 'Call or Message: +94 70 787 92 92',
+        title: 'WhatsApp',
+        details: '+94 70 787 92 92',
         buttonText: 'Message on WhatsApp',
         buttonLink: 'https://wa.me/94707879292',
         iconBg: 'bg-green-100 dark:bg-green-900/30',
@@ -35,11 +35,11 @@ const contactMethods = [
         buttonClass: 'bg-green-500 hover:bg-green-600 text-white'
     },
     {
-        icon: Mail,
-        title: 'Email',
-        details: 'grammarseedcollege@gmail.com',
-        buttonText: 'Send Email',
-        buttonLink: 'mailto:grammarseedcollege@gmail.com',
+        icon: Phone,
+        title: 'Call Us',
+        details: '+94 71 451 90 84',
+        buttonText: 'Call Now',
+        buttonLink: 'tel:+94714519084',
         iconBg: 'bg-blue-100 dark:bg-blue-900/30',
         iconColor: 'text-blue-600 dark:text-blue-400',
         buttonClass: 'bg-blue-600 hover:bg-blue-700 text-white'
@@ -109,6 +109,7 @@ export default function HeroSection() {
                                         {method.buttonText && (
                                             <Button asChild className={method.buttonClass}>
                                                 <Link href={method.buttonLink} target="_blank">{method.buttonText}</Link>
+
                                             </Button>
                                         )}
                                     </CardContent>

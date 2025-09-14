@@ -27,6 +27,7 @@ const classLinks = [
 
 const contactInfo = [
   { icon: Phone, text: '+94 70 787 92 92 (WhatsApp)', href: 'https://wa.me/94707879292' },
+  { icon: Phone, text: '+94 71 451 90 84 (Call)', href: 'tel:+94714519084' },
   { icon: Mail, text: 'grammarseedcollege@gmail.com', href: 'mailto:grammarseedcollege@gmail.com' },
 ];
 
@@ -92,6 +93,7 @@ export default function Footer() {
               {contactInfo.map((item, index) => {
                 const Icon = item.icon;
                 const isWhatsApp = item.text.includes('WhatsApp');
+                const isCall = item.text.includes('Call');
                 return (
                   <li key={index} className="flex items-start space-x-3">
                     <Icon className="h-5 w-5 flex-shrink-0 text-primary mt-1" />

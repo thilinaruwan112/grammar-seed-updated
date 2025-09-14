@@ -10,7 +10,7 @@ import { cn } from '@/lib/utils';
 import type { LucideIcon } from 'lucide-react';
 
 type ClassInfo = {
-  grade: string | number;
+  grade: string;
   title: string;
   icon: LucideIcon;
   colorClasses: string;
@@ -26,7 +26,7 @@ type ClassData = {
 const classesData: ClassData = {
   en: [
     {
-      grade: 9,
+      grade: 'grade-9',
       title: 'Grade 9',
       icon: BookOpen,
       colorClasses: 'bg-primary text-primary-foreground',
@@ -34,7 +34,7 @@ const classesData: ClassData = {
       details: ['2 hrs/ Week', 'Online'],
     },
     {
-      grade: 10,
+      grade: 'grade-10',
       title: 'Grade 10',
       icon: BookOpen,
       colorClasses: 'bg-secondary text-secondary-foreground',
@@ -42,7 +42,7 @@ const classesData: ClassData = {
       details: ['2 hrs/ Week', 'Online'],
     },
     {
-      grade: 11,
+      grade: 'grade-11',
       title: 'Grade 11',
       icon: BookOpen,
       colorClasses: 'bg-primary text.primary-foreground',
@@ -68,7 +68,7 @@ const classesData: ClassData = {
   ],
   si: [
     {
-      grade: 9,
+      grade: 'grade-9',
       title: '9 ශ්‍රේණිය',
       icon: BookOpen,
       colorClasses: 'bg-primary text-primary-foreground',
@@ -76,7 +76,7 @@ const classesData: ClassData = {
       details: ['සතියට පැය 2', 'ඔන්ලයින්'],
     },
     {
-      grade: 10,
+      grade: 'grade-10',
       title: '10 ශ්‍රේණිය',
       icon: BookOpen,
       colorClasses: 'bg-secondary text-secondary-foreground',
@@ -84,7 +84,7 @@ const classesData: ClassData = {
       details: ['සතියට පැය 2', 'ඔන්ලයින්'],
     },
     {
-      grade: 11,
+      grade: 'grade-11',
       title: '11 ශ්‍රේණිය',
       icon: BookOpen,
       colorClasses: 'bg-primary text-primary-foreground',

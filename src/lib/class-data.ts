@@ -66,7 +66,7 @@ export const classDetailsData: { [key: string]: any } = {
       imageHint: 'teacher portrait'
     }
   },
-  '9': {
+  'grade-9': {
     grade: 9,
     title: 'English Theory',
     fullTitle: 'GRADE 9 ENGLISH THEORY + PAPER CLASS',
@@ -101,7 +101,7 @@ export const classDetailsData: { [key: string]: any } = {
     recordings: 'Available',
     studyPack: 'Available',
   },
-  '10': {
+  'grade-10': {
     grade: 10,
     title: 'English Theory',
     fullTitle: 'GRADE 10 ENGLISH THEORY + PAPER CLASS',
@@ -129,7 +129,7 @@ export const classDetailsData: { [key: string]: any } = {
     recordings: 'Available',
     studyPack: 'Available',
   },
-  '11': {
+  'grade-11': {
     grade: 11,
     title: 'English Theory',
     fullTitle: 'GRADE 11 ENGLISH THEORY + PAPER CLASS',

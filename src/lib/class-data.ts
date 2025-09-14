@@ -68,14 +68,31 @@ export const classDetailsData: { [key: string]: any } = {
   },
   '9': {
     grade: 9,
-    title: 'O/L Prep',
-    description: 'O/L focused grammar, essay techniques, literature analysis, past papers.',
+    title: 'English Theory',
+    description: 'Learn the full grade 9 syllabus with us.',
     topics: [
         'O/L Syllabus Grammar Review',
         'Formal and Informal Letter Writing',
         'Analyzing O/L Literature Texts',
         'Time Management for Exams',
         'Solving Past Papers',
+    ],
+    learningPlan: [
+        {
+          term: 'First Term Learning Plan',
+          welcome: 'Welcome to your first term !',
+          details: 'In the first term, we’ll cover Units 1, 2, and 3 from both the Pupil’s Book and Workbook - Everybody is Good at Something, May I Help You?, and Meeting. All grammar lessons will be taught clearly and completely. You’ll also practice 10 First Term English papers, get your marks, discuss all papers to help you improve. It’s all about learning smart and feeling confident!'
+        },
+        {
+          term: 'Second Term Learning Plan',
+          welcome: 'Welcome to your second term !',
+          details: 'In the second term, we’ll cover Units 4, 5, 6 and 7 from both the Pupil’s Book and Workbook – Extinct Friends, A Second Chance Called Tomorrow, Art and Where We Are.. . All grammar lessons will be taught clearly and completely. You’ll also practice 10 Second Term English papers, get your marks and discuss all papers to help you improve. It’s all about learning smart and feeling confident!'
+        },
+        {
+          term: 'Third Term Learning Plan',
+          welcome: 'Welcome to your third term !',
+          details: 'In the third term, we’ll cover Units 8, 9, and 10 from both the Pupil’s Book and Workbook – Success Through Creativity, The Greatest Wealth and Be Happy,Be Bright,Be you.. . All grammar lessons will be taught clearly and completely. You’ll also practice 10 Third Term English papers, get your marks and discuss all papers to help you improve. It’s all about learning smart and feeling confident!'
+        },
     ],
     schedule: 'Sundays, 2:00 PM - 5:30 PM',
     format: 'Hybrid',

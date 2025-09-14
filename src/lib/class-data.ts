@@ -131,24 +131,30 @@ export const classDetailsData: { [key: string]: any } = {
   },
   '11': {
     grade: 11,
-    title: 'A/L Foundation',
-    description: 'A/L English preparation, advanced literature, critical analysis, research skills.',
-    topics: [
-        'Advanced English for A/L',
-        'Critical Analysis of Texts',
-        'Academic Writing and Research Skills',
-        'Advanced Literature Studies',
-        'General English Paper Preparation',
+    title: 'English Theory',
+    fullTitle: 'GRADE 11 ENGLISH THEORY + PAPER CLASS',
+    description: 'Learn the full grade 11 syllabus with us.',
+    learningPlan: [
+        {
+          term: 'First Term Learning Plan',
+          welcome: 'Welcome to your first term !',
+          details: 'In the first term, we’ll cover Units 1, 2, and 3 from both the Pupil’s Book and Workbook – Our Responsibilities, Facing Challenges and Great Lanka.. All grammar lessons will be taught clearly and completely. You’ll also practice 11 First Term English papers, get your marks, discuss all papers to help you improve. It’s all about learning smart and feeling confident!'
+        },
+        {
+          term: 'Second Term Learning Plan',
+          welcome: 'Welcome to your second term !',
+          details: 'In the second term, we’ll cover Units 4, 5, 6 and 7 from both the Pupil’s Book and Workbook – For A Better Tomorrow, Best Use Of Time. A Moment Of Fun, and A Simple Living.. All grammar lessons will be taught clearly and completely. You’ll also practice 11 Second Term English papers, get your marks and discuss all papers to help you improve. It’s all about learning smart and feeling confident!'
+        },
+        {
+          term: 'Third Term Learning Plan',
+          welcome: 'Welcome to your third term !',
+          details: 'In the third term, we’ll cover Units 8, 9, and 10 from both the Pupil’s Book and Workbook – Reading Is Fun, Enigma and Choices In Life.. All grammar lessons will be taught clearly and completely. You’ll also practice 11 Third Term English papers, get your marks and discuss all papers to help you improve. It’s all about learning smart and feeling confident!'
+        },
     ],
-    schedule: 'Fridays, 4:00 PM - 6:00 PM & Sundays 8:00 AM - 10:00 AM',
-    format: 'Hybrid',
-    duration: '4 hrs/week',
-    studentsPerBatch: 12,
-    fee: 'Rs. 9,000/month',
-    teacher: {
-      name: 'Mr. Saman Silva',
-      image: 'https://placehold.co/100x100.png',
-      imageHint: 'teacher portrait'
-    }
+    schedule: 'Wednesday 6.30 pm – 8.30 pm\nFriday 6.30 pm – 8.30 pm',
+    format: 'Zoom and YouTube',
+    fee: 'LKR 1000 Per Month',
+    recordings: 'Available',
+    studyPack: 'Available',
   },
 };

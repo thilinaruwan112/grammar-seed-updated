@@ -3,7 +3,6 @@ import { notFound } from 'next/navigation';
 import { classDetailsData } from '@/lib/class-data';
 
 import ClassHero from '@/components/class-details/class-hero';
-import ClassInfo from '@/components/class-details/class-info';
 import ClassCta from '@/components/class-details/class-cta';
 import LearningPlan from '@/components/class-details/learning-plan';
 
@@ -24,7 +23,6 @@ export default function ClassDetailsPage({ params }: ClassDetailsPageProps) {
   return (
     <>
       <ClassHero grade={classDetails.grade} title={classDetails.title} />
-      <ClassInfo details={classDetails} />
       {classDetails.learningPlan && <LearningPlan plans={classDetails.learningPlan} />}
       <ClassCta />
     </>

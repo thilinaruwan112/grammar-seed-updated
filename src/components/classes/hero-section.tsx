@@ -24,7 +24,7 @@ export default function HeroSection() {
     >
       <Image
         src="https://placehold.co/1920x1080.png"
-        alt="English Classes for Grades 6 to 11"
+        alt="English Classes for Grades 9 to 11"
         fill
         className="object-cover"
         priority
@@ -33,10 +33,10 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-black/50" />
       <div className="relative z-10 flex flex-col items-center justify-center space-y-4 px-4 text-center text-white">
         <h1 className="font-headline text-5xl font-bold tracking-tight md:text-7xl">
-          English Classes for Grades 6 to 11
+          Class details and schedules | Grade 9 – 11
         </h1>
         <p className="max-w-2xl text-lg text-neutral-200 md:text-xl">
-          Structured, effective English learning tailored to the Sri Lankan syllabus.
+          Pick your grade unlock your class
         </p>
       </div>
     </motion.section>

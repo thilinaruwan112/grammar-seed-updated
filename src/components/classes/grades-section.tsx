@@ -4,63 +4,39 @@ import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { Clock, Monitor } from 'lucide-react';
+import { ArrowRight, BookOpen, Edit } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const gradesData = [
   {
-    grade: 6,
-    title: 'Foundation Grammar',
-    description: 'Basic grammar, simple tenses, vocabulary building, and reading comprehension.',
-    format: 'Online/Physical',
-    duration: '2 hrs/week',
-    colorClasses: 'bg-primary text-primary-foreground',
-    buttonClasses: 'bg-primary hover:bg-primary/90 text-primary-foreground',
-  },
-  {
-    grade: 7,
-    title: 'Grammar Plus',
-    description: 'Advanced grammar, essay writing, comprehension, and vocabulary expansion.',
-    format: 'Hybrid',
-    duration: '2.5 hrs/week',
-    colorClasses: 'bg-secondary text-secondary-foreground',
-    buttonClasses: 'bg-secondary hover:bg-secondary/80 text-secondary-foreground',
-  },
-  {
-    grade: 8,
-    title: 'Language Skills',
-    description: 'Complex grammar, creative writing, literature basics, and speaking skills.',
-    format: 'Online/Physical',
-    duration: '3 hrs/week',
-    colorClasses: 'bg-primary text-primary-foreground',
-    buttonClasses: 'bg-primary hover:bg-primary/90 text-primary-foreground',
-  },
-  {
     grade: 9,
-    title: 'O/L Prep',
-    description: 'O/L focused grammar, essay techniques, literature analysis, past papers.',
-    format: 'Hybrid',
-    duration: '3.5 hrs/week',
-    colorClasses: 'bg-secondary text-secondary-foreground',
-    buttonClasses: 'bg-secondary hover:bg-secondary/80 text-secondary-foreground',
+    title: 'Grade 9',
+    icon: BookOpen,
+    colorClasses: 'bg-primary text-primary-foreground',
   },
   {
     grade: 10,
-    title: 'O/L Mastery',
-    description: 'Intensive O/L preparation, advanced writing, literature, exam strategies.',
-    format: 'Online/Physical',
-    duration: '4 hrs/week',
-    colorClasses: 'bg-primary text-primary-foreground',
-    buttonClasses: 'bg-primary hover:bg-primary/90 text-primary-foreground',
+    title: 'Grade 10',
+    icon: BookOpen,
+    colorClasses: 'bg-secondary text-secondary-foreground',
   },
   {
     grade: 11,
-    title: 'A/L Foundation',
-    description: 'A/L English preparation, advanced literature, critical analysis, research skills.',
-    format: 'Hybrid',
-    duration: '4 hrs/week',
-    colorClasses: 'bg-secondary text-secondary-foreground',
-    buttonClasses: 'bg-secondary hover:bg-secondary/80 text-secondary-foreground',
+    title: 'Grade 11',
+    icon: BookOpen,
+    colorClasses: 'bg-primary text-primary-foreground',
+  },
+  {
+    grade: 'revision-english',
+    title: 'Rapid English Revision',
+    icon: Edit,
+    colorClasses: 'bg-accent text-accent-foreground',
+  },
+  {
+    grade: 'revision-essay',
+    title: 'Rapid Essay Revision',
+    icon: Edit,
+    colorClasses: 'bg-accent text-accent-foreground',
   },
 ];
 
@@ -92,50 +68,30 @@ export default function GradesSection() {
       variants={sectionVariants}
     >
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold font-headline text-foreground">
-            Choose Your Grade
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {gradesData.map((grade) => (
-            <motion.div key={grade.grade} variants={itemVariants}>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          {gradesData.map((item) => {
+             const Icon = item.icon
+             return (
+            <motion.div key={item.title} variants={itemVariants}>
               <Card className="flex flex-col h-full shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-lg overflow-hidden bg-card">
-                <CardContent className="p-6 flex flex-col flex-grow">
-                  <div className="flex items-start gap-4 mb-4">
-                    <div className={cn("w-10 h-10 rounded-full flex items-center justify-center shrink-0 font-bold", grade.colorClasses)}>
-                      {grade.grade}
+                <CardContent className="p-8 flex flex-col items-center text-center flex-grow">
+                   <div className={cn("w-16 h-16 rounded-full flex items-center justify-center shrink-0 mb-6", item.colorClasses)}>
+                      <Icon className="w-8 h-8" />
                     </div>
-                    <div>
-                      <h3 className="font-headline text-xl font-bold text-foreground">
-                        Grade {grade.grade} - {grade.title}
-                      </h3>
-                    </div>
-                  </div>
+                  <h3 className="font-headline text-2xl font-bold text-foreground mb-4">
+                    {item.title}
+                  </h3>
                   
-                  <p className="text-muted-foreground mb-6 flex-grow">
-                    {grade.description}
-                  </p>
-                  
-                  <div className="space-y-2 text-muted-foreground text-sm mb-6">
-                      <div className="flex items-center gap-2">
-                          <Monitor className="w-4 h-4 text-primary" />
-                          <span>{grade.format}</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                          <Clock className="w-4 h-4 text-primary" />
-                          <span>{grade.duration}</span>
-                      </div>
-                  </div>
-
-                  <Button asChild className={cn('w-full mt-auto', grade.buttonClasses)}>
-                    <Link href={`/classes/${grade.grade}`}>View Details</Link>
+                  <Button asChild className='mt-auto w-full' variant={item.grade.toString().includes('revision') ? 'accent' : 'default'}>
+                    <Link href={`/classes/${item.grade}`}>
+                      Unlock Class <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
                   </Button>
                 </CardContent>
               </Card>
             </motion.div>
-          ))}
+             )
+          })}
         </div>
       </div>
     </motion.section>

@@ -38,6 +38,8 @@ const classesData: ClassData = {
       title: 'Grade 10',
       icon: BookOpen,
       colorClasses: 'bg-secondary text-secondary-foreground',
+      description: 'Start your Theory lessons here. Learn step by step and get better marks in your term test exams.',
+      details: ['2 hrs/ Week', 'Online'],
     },
     {
       grade: 11,
@@ -72,6 +74,8 @@ const classesData: ClassData = {
       title: '10 ශ්‍රේණිය',
       icon: BookOpen,
       colorClasses: 'bg-secondary text-secondary-foreground',
+      description: 'ඔබේ සිද්ධාන්ත පාඩම් මෙතැනින් ආරම්භ කරන්න. පියවරෙන් පියවර ඉගෙන ගෙන ඔබගේ වාර පරීක්ෂණ විභාග වලින් වඩා හොඳ ලකුණු ලබා ගන්න.',
+      details: ['සතියට පැය 2', 'ඔන්ලයින්'],
     },
     {
       grade: 11,

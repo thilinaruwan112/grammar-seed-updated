@@ -10,7 +10,6 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { Button } from '@/components/ui/button';
-import Image from 'next/image';
 import Link from 'next/link';
 import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -162,15 +161,7 @@ export default function AllTestimonialsSection() {
               <Card className="h-full shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-2xl bg-card">
                 <CardContent className="p-6 flex flex-col h-full">
                   <div className="flex items-center mb-4">
-                    <Image
-                      src={testimonial.avatar}
-                      alt={testimonial.name}
-                      width={48}
-                      height={48}
-                      className="rounded-full object-cover"
-                      data-ai-hint={testimonial.avatarHint}
-                    />
-                    <div className="ml-4">
+                    <div>
                       <h3 className="font-semibold font-headline text-foreground">{testimonial.name}</h3>
                       <p className="text-sm text-muted-foreground">{testimonial.role}</p>
                     </div>

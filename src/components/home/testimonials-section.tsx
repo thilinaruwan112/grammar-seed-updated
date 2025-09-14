@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import Image from 'next/image';
 import { Star } from 'lucide-react';
 import {
   Carousel,
@@ -90,15 +89,7 @@ export default function TestimonialsSection() {
                                 <CarouselItem key={index} className="md:basis-1/2 p-4">
                                     <Card className="bg-card p-8 rounded-2xl shadow-lg text-left h-full flex flex-col">
                                         <div className="flex items-center mb-4">
-                                            <Image
-                                                src={testimonial.avatar}
-                                                alt={testimonial.name}
-                                                width={60}
-                                                height={60}
-                                                className="rounded-full object-cover"
-                                                data-ai-hint={testimonial.avatarHint}
-                                            />
-                                            <div className="ml-4">
+                                            <div>
                                                 <h3 className="font-headline text-xl font-bold">{testimonial.name}</h3>
                                                 <p className="text-muted-foreground">{testimonial.role}</p>
                                             </div>

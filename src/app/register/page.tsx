@@ -16,6 +16,10 @@ const translations = {
   },
 };
 
+// This page uses client-side rendering, so we cannot export metadata directly.
+// We can set the title in a useEffect hook, but for now we rely on the layout's default title.
+// For better SEO, this page could be made a Server Component with a Client Component inside.
+
 export default function RegisterPage() {
   const { language } = useLanguage();
   const t = translations[language] || translations.en;

@@ -1,4 +1,10 @@
 import GrammarCheckerForm from '@/components/grammar-checker-form';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'AI Grammar Checker | Grammar Seed',
+  description: 'Use our free AI-powered grammar checker to find and fix grammar, spelling, and style issues in your text. Perfect for students and writers.',
+};
 
 export default function CheckerPage() {
   return (

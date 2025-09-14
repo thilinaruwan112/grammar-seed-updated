@@ -2,6 +2,12 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Download } from 'lucide-react';
 import Link from 'next/link';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Downloadable Grammar Sheets | Grammar Seed',
+  description: 'Download our handy PDF grammar reference sheets for offline study. Topics include verb tenses, punctuation, sentence structure, and more.',
+};
 
 const grammarSheets = [
   { title: 'Complete Guide to Verb Tenses', format: 'PDF', size: '2.3 MB' },

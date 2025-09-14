@@ -6,6 +6,10 @@ import { Card } from '@/components/ui/card';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
+// This page uses client-side rendering, so we cannot export metadata directly.
+// We can set the title in a useEffect hook, but for now we rely on the layout's default title.
+// For better SEO, this page could be made a Server Component with a Client Component inside.
+
 const sectionVariants = {
   hidden: { opacity: 0 },
   visible: { 

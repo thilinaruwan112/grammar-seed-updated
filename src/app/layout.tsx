@@ -11,7 +11,10 @@ import { LanguageProvider } from '@/components/language-provider';
 import WhatsAppButton from '@/components/whatsapp-button';
 
 export const metadata: Metadata = {
-  title: 'Grammar Seed | Master English Grammar for O/L Exams',
+  title: {
+    default: 'Grammar Seed | Master English Grammar for O/L Exams',
+    template: '%s | Grammar Seed',
+  },
   description: 'Top-quality English grammar and writing classes for Sri Lankan students in Grades 9, 10, and 11. Achieve 90+ marks with proven methods for O/L exam success.',
   keywords: [
     'English grammar', 

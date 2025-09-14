@@ -1,6 +1,12 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Link from 'next/link';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Practice Exercises | Grammar Seed',
+  description: 'Test your English grammar knowledge with our interactive quizzes on tenses, punctuation, sentence structure, and more. Perfect for O/L exam practice.',
+};
 
 const practiceQuizzes = [
   { title: 'Tense Identification', description: 'Identify the correct tense in each sentence. 10 questions.' },

@@ -7,6 +7,7 @@ import ClassCta from '@/components/class-details/class-cta';
 import LearningPlan from '@/components/class-details/learning-plan';
 import StickyClassDetails from '@/components/class-details/sticky-class-details';
 import MonthlyLearningPlan from '@/components/class-details/monthly-learning-plan';
+import ClassDescription from '@/components/class-details/class-description';
 
 type ClassDetailsPageProps = {
   params: {
@@ -29,6 +30,7 @@ export default function ClassDetailsPage({ params }: ClassDetailsPageProps) {
         <div className="container mx-auto px-4 py-16 lg:py-24">
           <div className="flex flex-col lg:flex-row lg:gap-12">
             <main className="w-full lg:w-2/3">
+              {classDetails.description && !classDetails.monthlyPlan && <ClassDescription description={classDetails.description} />}
               {classDetails.learningPlan && <LearningPlan plans={classDetails.learningPlan} />}
               {classDetails.monthlyPlan && <MonthlyLearningPlan title="Monthly Learning Plan" description={classDetails.description} plans={classDetails.monthlyPlan} />}
             </main>

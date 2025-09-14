@@ -107,6 +107,9 @@ export default function Footer() {
 
         <div className="mt-16 border-t border-border pt-8 text-center">
           <p className="text-sm text-muted-foreground">&copy; {new Date().getFullYear()} Grammar Seed. All rights reserved.</p>
+          <p className="text-sm text-muted-foreground mt-2">
+            Powered by <a href="https://payshia.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary">Payshia Software Solutions</a>
+          </p>
         </div>
       </div>
     </footer>

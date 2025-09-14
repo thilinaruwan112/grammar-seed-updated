@@ -27,6 +27,7 @@ type StickyClassDetailsProps = {
   details: {
     fullTitle?: string;
     fee?: string;
+    feePeriod?: string;
     schedule?: string;
     format?: string;
     recordings?: string;
@@ -40,7 +41,7 @@ export default function StickyClassDetails({ details }: StickyClassDetailsProps)
     return null;
   }
 
-  const { fullTitle, fee, schedule, format, recordings, studyPack } = details;
+  const { fullTitle, fee, feePeriod, schedule, format, recordings, studyPack } = details;
 
   return (
     <Card className="shadow-lg rounded-xl">
@@ -50,8 +51,8 @@ export default function StickyClassDetails({ details }: StickyClassDetailsProps)
       <CardContent className="space-y-6">
         {fee && (
           <div className="text-center pb-4 border-b">
-            <p className="text-3xl font-bold text-primary">{fee.split(' ').slice(0, 2).join(' ')}</p>
-            <p className="text-muted-foreground">Per Month</p>
+            <p className="text-3xl font-bold text-primary">{fee}</p>
+            <p className="text-muted-foreground">{feePeriod}</p>
           </div>
         )}
         <div className="space-y-4">

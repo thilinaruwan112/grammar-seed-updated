@@ -193,7 +193,7 @@ function MobileClassesAccordion() {
   return (
     <Accordion type="single" collapsible className="w-full">
       <AccordionItem value="item-1" className="border-b-0">
-        <AccordionTrigger className="block rounded-md px-4 py-3 text-lg font-medium transition-colors text-foreground hover:bg-muted hover:no-underline [&[data-state=open]]:bg-muted">
+        <AccordionTrigger className="rounded-md px-4 py-3 text-lg font-medium transition-colors text-foreground hover:bg-muted hover:no-underline [&[data-state=open]]:bg-muted">
           Classes
         </AccordionTrigger>
         <AccordionContent className="pb-0">

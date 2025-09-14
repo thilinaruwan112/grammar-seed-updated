@@ -99,7 +99,7 @@ function ClassesDropdownMenu() {
     .filter(key => key.startsWith('grade-'))
     .map(key => ({
       href: `/classes/${key}`,
-      label: currentClassData[key].title
+      label: language === 'si' ? `${currentClassData[key].grade} ශ්‍රේණිය` : `Grade ${currentClassData[key].grade}`
     }));
 
   const revisionClasses = Object.keys(currentClassData)
@@ -111,8 +111,8 @@ function ClassesDropdownMenu() {
   
   return (
     <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
-      <DropdownMenuTrigger asChild onMouseEnter={() => setIsOpen(true)}>
-        <div onMouseLeave={() => setIsOpen(false)}>
+      <DropdownMenuTrigger asChild>
+        <div onMouseEnter={() => setIsOpen(true)} onMouseLeave={() => setIsOpen(false)}>
           <NavLink href="/classes" label="Classes">
             <ChevronDown className={cn('h-4 w-4 transition-transform', isOpen && 'rotate-180')} />
           </NavLink>
@@ -159,6 +159,7 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const { language } = useLanguage();
   const { links: navLinks, register: tRegister } = navLinksData[language] || navLinksData.en;
+  const pathname = usePathname();
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-sm">
@@ -222,7 +223,7 @@ export default function Header() {
                           onClick={() => setOpen(false)}
                           className={cn(
                             'block rounded-md px-4 py-3 text-lg font-medium transition-colors',
-                            usePathname() === href
+                            pathname === href
                               ? 'bg-primary text-primary-foreground'
                               : 'text-foreground hover:bg-muted'
                           )}

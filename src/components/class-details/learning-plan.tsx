@@ -45,6 +45,9 @@ export default function LearningPlan({ plans }: LearningPlanProps) {
           <h2 className="text-4xl font-bold font-headline text-foreground">
             Syllabus Coverage Plan
           </h2>
+          <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
+            Our comprehensive syllabus is structured across three terms to ensure a complete understanding of the curriculum and thorough preparation for exams.
+          </p>
         </div>
 
         <Accordion type="multiple" defaultValue={defaultOpenItems} className="w-full space-y-4">

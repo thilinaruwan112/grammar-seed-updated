@@ -37,9 +37,9 @@ export default function Footer() {
   return (
     <footer className="bg-background text-foreground border-t">
       <div className="container mx-auto py-16 px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-8">
           {/* Column 1: Brand */}
-          <div className="space-y-4 sm:col-span-2 md:col-span-1">
+          <div className="space-y-4 col-span-2 sm:col-span-2 md:col-span-1">
             <Link href="/" className="flex items-center space-x-2">
               <FileText className="h-8 w-8 text-primary" />
               <span className="font-bold text-2xl text-foreground">Grammar Seed</span>
@@ -88,7 +88,7 @@ export default function Footer() {
           </div>
 
           {/* Column 4: Contact */}
-          <div>
+          <div className="col-span-2 sm:col-span-2 md:col-span-1">
             <h3 className="text-sm font-semibold tracking-wider uppercase text-foreground">Contact</h3>
             <ul className="mt-4 space-y-4">
               {contactInfo.map((item, index) => {

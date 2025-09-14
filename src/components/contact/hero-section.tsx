@@ -6,6 +6,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Phone, Mail, MapPin } from 'lucide-react';
 import Link from 'next/link';
+import { useLanguage } from '../language-provider';
 
 const sectionVariants = {
   hidden: { opacity: 0 },
@@ -23,40 +24,85 @@ const cardVariants = {
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
 }
 
-const contactMethods = [
-    {
-        icon: Phone,
-        title: 'WhatsApp',
-        details: '+94 70 787 92 92',
-        buttonText: 'Message on WhatsApp',
-        buttonLink: 'https://wa.me/94707879292',
-        iconBg: 'bg-green-100 dark:bg-green-900/30',
-        iconColor: 'text-green-600 dark:text-green-400',
-        buttonClass: 'bg-green-500 hover:bg-green-600 text-white'
+const translations = {
+    en: {
+        title: 'Get in Touch',
+        subtitle: "We'd love to hear from you. Contact us for class details, questions, or registration.",
+        methods: [
+            {
+                icon: Phone,
+                title: 'WhatsApp',
+                details: '+94 70 787 92 92',
+                buttonText: 'Message on WhatsApp',
+                buttonLink: 'https://wa.me/94707879292',
+                iconBg: 'bg-green-100 dark:bg-green-900/30',
+                iconColor: 'text-green-600 dark:text-green-400',
+                buttonClass: 'bg-green-500 hover:bg-green-600 text-white'
+            },
+            {
+                icon: Phone,
+                title: 'Call Us',
+                details: '+94 71 451 90 84',
+                buttonText: 'Call Now',
+                buttonLink: 'tel:+94714519084',
+                iconBg: 'bg-blue-100 dark:bg-blue-900/30',
+                iconColor: 'text-blue-600 dark:text-blue-400',
+                buttonClass: 'bg-blue-600 hover:bg-blue-700 text-white'
+            },
+            {
+                icon: MapPin,
+                title: 'Location',
+                details: 'No. 50/1, Dharmapala Mawatha, Pelmadulla.',
+                buttonText: 'Get Directions',
+                buttonLink: 'https://www.google.com/maps/search/?api=1&query=No.+50/1,+Dharmapala+Mawatha,+Pelmadulla.',
+                iconBg: 'bg-orange-100 dark:bg-orange-900/30',
+                iconColor: 'text-orange-600 dark:text-orange-400',
+                buttonClass: 'bg-orange-500 hover:bg-orange-600 text-white'
+            }
+        ]
     },
-    {
-        icon: Phone,
-        title: 'Call Us',
-        details: '+94 71 451 90 84',
-        buttonText: 'Call Now',
-        buttonLink: 'tel:+94714519084',
-        iconBg: 'bg-blue-100 dark:bg-blue-900/30',
-        iconColor: 'text-blue-600 dark:text-blue-400',
-        buttonClass: 'bg-blue-600 hover:bg-blue-700 text-white'
-    },
-    {
-        icon: MapPin,
-        title: 'Location',
-        details: 'No. 50/1, Dharmapala Mawatha, Pelmadulla.',
-        buttonText: 'Get Directions',
-        buttonLink: 'https://www.google.com/maps/search/?api=1&query=No.+50/1,+Dharmapala+Mawatha,+Pelmadulla.',
-        iconBg: 'bg-orange-100 dark:bg-orange-900/30',
-        iconColor: 'text-orange-600 dark:text-orange-400',
-        buttonClass: 'bg-orange-500 hover:bg-orange-600 text-white'
+    si: {
+        title: 'අප හා සම්බන්ධ වන්න',
+        subtitle: 'ඔබෙන් යමක් ඇසීමට අපි කැමැත්තෙමු. පන්ති විස්තර, ප්‍රශ්න, හෝ ලියාපදිංචිය සඳහා අපව අමතන්න.',
+        methods: [
+            {
+                icon: Phone,
+                title: 'WhatsApp',
+                details: '+94 70 787 92 92',
+                buttonText: 'WhatsApp පණිවිඩයක් යවන්න',
+                buttonLink: 'https://wa.me/94707879292',
+                iconBg: 'bg-green-100 dark:bg-green-900/30',
+                iconColor: 'text-green-600 dark:text-green-400',
+                buttonClass: 'bg-green-500 hover:bg-green-600 text-white'
+            },
+            {
+                icon: Phone,
+                title: 'අපට කතා කරන්න',
+                details: '+94 71 451 90 84',
+                buttonText: 'දැන් අමතන්න',
+                buttonLink: 'tel:+94714519084',
+                iconBg: 'bg-blue-100 dark:bg-blue-900/30',
+                iconColor: 'text-blue-600 dark:text-blue-400',
+                buttonClass: 'bg-blue-600 hover:bg-blue-700 text-white'
+            },
+            {
+                icon: MapPin,
+                title: 'ස්ථානය',
+                details: 'නො. 50/1, ධර්මපාල මාවත, පැල්මඩුල්ල.',
+                buttonText: 'මාර්ග උපදෙස් ලබා ගන්න',
+                buttonLink: 'https://www.google.com/maps/search/?api=1&query=No.+50/1,+Dharmapala+Mawatha,+Pelmadulla.',
+                iconBg: 'bg-orange-100 dark:bg-orange-900/30',
+                iconColor: 'text-orange-600 dark:text-orange-400',
+                buttonClass: 'bg-orange-500 hover:bg-orange-600 text-white'
+            }
+        ]
     }
-]
+}
 
 export default function HeroSection() {
+  const { language } = useLanguage();
+  const t = translations[language] || translations.en;
+
   return (
     <motion.section 
       className="relative w-full"
@@ -76,10 +122,10 @@ export default function HeroSection() {
             <div className="absolute inset-0 bg-black/50" />
             <div className="relative z-20 text-center text-white px-4 pb-40">
                 <h1 className="font-headline text-5xl font-bold tracking-tight md:text-7xl">
-                    Get in Touch
+                    {t.title}
                 </h1>
                 <p className="max-w-2xl mx-auto mt-4 text-lg text-neutral-200 md:text-xl">
-                    We'd love to hear from you. Contact us for class details, questions, or registration.
+                    {t.subtitle}
                 </p>
             </div>
         </div>
@@ -93,7 +139,7 @@ export default function HeroSection() {
                     viewport={{ once: true, amount: 0.2 }}
                     transition={{ staggerChildren: 0.2 }}
                 >
-                    {contactMethods.map((method, index) => {
+                    {t.methods.map((method, index) => {
                         const Icon = method.icon;
                         return (
                             <motion.div key={index} variants={cardVariants}>

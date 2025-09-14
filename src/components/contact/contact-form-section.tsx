@@ -22,16 +22,84 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../language-provider';
 
-const formSchema = z.object({
-  name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
-  grade: z.string({ required_error: 'Please select a grade.' }),
-  mobile: z.string().min(10, { message: 'Please enter a valid mobile number.' }),
-  email: z.string().email({ message: 'Please enter a valid email.' }).optional().or(z.literal('')),
-  message: z.string().min(10, { message: 'Message must be at least 10 characters.' }),
+const createFormSchema = (t: any) => z.object({
+  name: z.string().min(2, { message: t.validation.name_min }),
+  grade: z.string({ required_error: t.validation.grade_required }),
+  mobile: z.string().min(10, { message: t.validation.mobile_min }),
+  email: z.string().email({ message: t.validation.email_invalid }).optional().or(z.literal('')),
+  message: z.string().min(10, { message: t.validation.message_min }),
 });
 
+
+const translations = {
+    en: {
+        title: "Send Us a Message",
+        subtitle: "Fill out the form below and we'll get back to you soon",
+        labels: {
+            name: "Name",
+            grade: "Grade",
+            selectGrade: "Select Grade",
+            mobile: "Mobile Number",
+            email: "Email (Optional)",
+            message: "Message",
+            message_placeholder: "Type your message here...",
+            submit: "Submit Message",
+            grades: [
+                { value: "grade-6", label: "Grade 6" },
+                { value: "grade-7", label: "Grade 7" },
+                { value: "grade-8", label: "Grade 8" },
+                { value: "grade-9", label: "Grade 9" },
+                { value: "grade-10", label: "Grade 10" },
+                { value: "grade-11", label: "Grade 11" },
+            ]
+        },
+        validation: {
+            name_min: "Name must be at least 2 characters.",
+            grade_required: "Please select a grade.",
+            mobile_min: "Please enter a valid mobile number.",
+            email_invalid: "Please enter a valid email.",
+            message_min: "Message must be at least 10 characters.",
+        }
+    },
+    si: {
+        title: "අපට පණිවිඩයක් එවන්න",
+        subtitle: "පහත පෝරමය පුරවන්න, අපි ඉක්මනින් ඔබ හා සම්බන්ධ වන්නෙමු",
+        labels: {
+            name: "නම",
+            grade: "ශ්‍රේණිය",
+            selectGrade: "ශ්‍රේණිය තෝරන්න",
+            mobile: "දුරකථන අංකය",
+            email: "විද්‍යුත් තැපෑල (අත්‍යවශ්‍ය නොවේ)",
+            message: "පණිවිඩය",
+            message_placeholder: "ඔබගේ පණිවිඩය මෙහි ටයිප් කරන්න...",
+            submit: "පණිවිඩය යවන්න",
+            grades: [
+                { value: "grade-6", label: "6 ශ්‍රේණිය" },
+                { value: "grade-7", label: "7 ශ්‍රේණිය" },
+                { value: "grade-8", label: "8 ශ්‍රේණිය" },
+                { value: "grade-9", label: "9 ශ්‍රේණිය" },
+                { value: "grade-10", label: "10 ශ්‍රේණිය" },
+                { value: "grade-11", label: "11 ශ්‍රේණිය" },
+            ]
+        },
+        validation: {
+            name_min: "නම අවම වශයෙන් අක්ෂර 2ක් විය යුතුය.",
+            grade_required: "කරුණාකර ශ්‍රේණියක් තෝරන්න.",
+            mobile_min: "කරුණාකර වලංගු දුරකථන අංකයක් ඇතුළත් කරන්න.",
+            email_invalid: "කරුණාකර වලංගු විද්‍යුත් තැපෑලක් ඇතුළත් කරන්න.",
+            message_min: "පණිවිඩය අවම වශයෙන් අක්ෂර 10ක් විය යුතුය.",
+        }
+    }
+}
+
 export default function ContactFormSection() {
+  const { language } = useLanguage();
+  const t = translations[language] || translations.en;
+  
+  const formSchema = createFormSchema(t);
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -58,10 +126,10 @@ export default function ContactFormSection() {
       <div className="container mx-auto px-4 max-w-3xl">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold font-headline text-foreground">
-            Send Us a Message
+            {t.title}
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Fill out the form below and we'll get back to you soon
+            {t.subtitle}
           </p>
         </div>
 
@@ -73,7 +141,7 @@ export default function ContactFormSection() {
                 name="name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Name</FormLabel>
+                    <FormLabel>{t.labels.name}</FormLabel>
                     <FormControl>
                       <Input {...field} />
                     </FormControl>
@@ -86,20 +154,17 @@ export default function ContactFormSection() {
                 name="grade"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Grade</FormLabel>
+                    <FormLabel>{t.labels.grade}</FormLabel>
                     <Select onValueChange={field.onChange} defaultValue={field.value}>
                       <FormControl>
                         <SelectTrigger>
-                          <SelectValue placeholder="Select Grade" />
+                          <SelectValue placeholder={t.labels.selectGrade} />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
-                        <SelectItem value="grade-6">Grade 6</SelectItem>
-                        <SelectItem value="grade-7">Grade 7</SelectItem>
-                        <SelectItem value="grade-8">Grade 8</SelectItem>
-                        <SelectItem value="grade-9">Grade 9</SelectItem>
-                        <SelectItem value="grade-10">Grade 10</SelectItem>
-                        <SelectItem value="grade-11">Grade 11</SelectItem>
+                        {t.labels.grades.map(grade => (
+                            <SelectItem key={grade.value} value={grade.value}>{grade.label}</SelectItem>
+                        ))}
                       </SelectContent>
                     </Select>
                     <FormMessage />
@@ -111,7 +176,7 @@ export default function ContactFormSection() {
                 name="mobile"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Mobile Number</FormLabel>
+                    <FormLabel>{t.labels.mobile}</FormLabel>
                     <FormControl>
                       <Input {...field} />
                     </FormControl>
@@ -124,7 +189,7 @@ export default function ContactFormSection() {
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Email (Optional)</FormLabel>
+                    <FormLabel>{t.labels.email}</FormLabel>
                     <FormControl>
                       <Input {...field} />
                     </FormControl>
@@ -138,10 +203,10 @@ export default function ContactFormSection() {
               name="message"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Message</FormLabel>
+                  <FormLabel>{t.labels.message}</FormLabel>
                   <FormControl>
                     <Textarea
-                      placeholder="Type your message here..."
+                      placeholder={t.labels.message_placeholder}
                       className="resize-none h-40"
                       {...field}
                     />
@@ -152,7 +217,7 @@ export default function ContactFormSection() {
             />
             <div className="text-center">
               <Button type="submit" size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
-                Submit Message
+                {t.labels.submit}
               </Button>
             </div>
           </form>

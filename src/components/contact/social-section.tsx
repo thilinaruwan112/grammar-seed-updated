@@ -3,6 +3,7 @@
 import { Facebook, Youtube } from 'lucide-react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../language-provider';
 
 // WhatsApp icon as an SVG component
 const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -17,12 +18,20 @@ const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-
 const socialLinks = [
   { icon: Facebook, href: 'https://www.facebook.com/', label: 'Facebook', bgColor: 'bg-blue-600' },
   { icon: WhatsAppIcon, href: 'https://wa.me/94707879292', label: 'WhatsApp', bgColor: 'bg-green-500' },
   { icon: Youtube, href: 'https://www.youtube.com/', label: 'YouTube', bgColor: 'bg-red-600' },
 ];
+
+const translations = {
+    en: {
+        title: 'Follow Grammar Seed for updates and tips!',
+    },
+    si: {
+        title: 'යාවත්කාලීන කිරීම් සහ උපදෙස් සඳහා ග්‍රැමර් සීඩ් අනුගමනය කරන්න!',
+    }
+}
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 50 },
@@ -37,6 +46,9 @@ const sectionVariants = {
 };
 
 export default function SocialSection() {
+  const { language } = useLanguage();
+  const t = translations[language] || translations.en;
+
   return (
     <motion.section
       className="py-16 bg-background"
@@ -48,7 +60,7 @@ export default function SocialSection() {
       <div className="container mx-auto px-4 max-w-3xl">
         <div className="text-center">
           <h2 className="text-2xl font-bold font-headline text-foreground mb-6">
-            Follow Grammar Seed for updates and tips!
+            {t.title}
           </h2>
           <div className="flex justify-center space-x-4">
             {socialLinks.map((link) => {

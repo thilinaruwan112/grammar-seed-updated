@@ -103,25 +103,31 @@ export const classDetailsData: { [key: string]: any } = {
   },
   '10': {
     grade: 10,
-    title: 'O/L Mastery',
-    description: 'Intensive O/L preparation, advanced writing, literature, exam strategies.',
-    topics: [
-        'Advanced Grammar & Syntax for O/L',
-        'Mastering Essay and Summary Writing',
-        'In-depth Literature Analysis',
-        'Advanced Reading Comprehension',
-        'Intensive Past Paper Practice & Review',
+    title: 'English Theory',
+    fullTitle: 'GRADE 10 ENGLISH THEORY + PAPER CLASS',
+    description: 'Learn the full grade 10 syllabus with us.',
+    learningPlan: [
+        {
+          term: 'First Term Learning Plan',
+          welcome: 'Welcome to your first term !',
+          details: 'In the first term, we’ll cover Units 1, 2, 3 and 4 from both the Pupil’s Book and Workbook – People, On Your Way, Travel, and Let’s Talk.. All grammar lessons will be taught clearly and completely. You’ll also practice 10 First Term English papers, get your marks, discuss all papers to help you improve. It’s all about learning smart and feeling confident!'
+        },
+        {
+          term: 'Second Term Learning Plan',
+          welcome: 'Welcome to your second term !',
+          details: 'In the second term, we’ll cover Units 5, 6, 7, 8 and 9 from both the Pupil’s Book and Workbook – Best Practices, Information, Learning is Fun, Healthy Food, and Nature.. All grammar lessons will be taught clearly and completely. You’ll also practice 10 Second Term English papers, get your marks and discuss all papers to help you improve. It’s all about learning smart and feeling confident!'
+        },
+        {
+          term: 'Third Term Learning Plan',
+          welcome: 'Welcome to your third term !',
+          details: 'In the third term, we’ll cover Units 10, 11, 12, 13 and 14 from both the Pupil’s Book and Workbook – Personality, The Right Career, Success, Future and Sports.. All grammar lessons will be taught clearly and completely. You’ll also practice 10 Third Term English papers, get your marks and discuss all papers to help you improve. It’s all about learning smart and feeling confident!'
+        },
     ],
-    schedule: 'Saturdays & Sundays, 4:00 PM - 6:00 PM',
-    format: 'Online & Physical',
-    duration: '4 hrs/week',
-    studentsPerBatch: 15,
-    fee: 'Rs. 8,500/month',
-    teacher: {
-      name: 'Mr. Saman Silva',
-      image: 'https://placehold.co/100x100.png',
-      imageHint: 'teacher portrait'
-    }
+    schedule: 'Monday 6.30 pm – 8.30 pm',
+    format: 'Zoom and YouTube',
+    fee: 'LKR 1000 Per Month',
+    recordings: 'Available',
+    studyPack: 'Available',
   },
   '11': {
     grade: 11,

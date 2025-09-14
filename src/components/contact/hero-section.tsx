@@ -64,7 +64,7 @@ export default function HeroSection() {
     >
         <div className="relative h-[60vh] min-h-[500px] w-full flex items-end justify-center">
             <Image
-                src="https://placehold.co/1920x1080.png"
+                src="https://content-provider.payshia.com/grammar-seed/grammer-seed-hero-optimized.webp"
                 alt="Group of teachers and staff"
                 fill
                 className="object-cover"

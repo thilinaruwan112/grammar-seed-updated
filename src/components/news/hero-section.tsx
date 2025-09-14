@@ -23,7 +23,7 @@ export default function HeroSection() {
       variants={sectionVariants}
     >
       <Image
-        src="https://placehold.co/1920x1080.png"
+        src="https://content-provider.payshia.com/grammar-seed/grammer-seed-hero-optimized.webp"
         alt="Group of students and teachers"
         fill
         className="object-cover"
